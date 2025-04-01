@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyFans | Post Details</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/feed.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+<!-- Header Navigation (Desktop) -->
+<header class="desktop-header">
+  <div class="container">
+    <div class="logo">
+      <h1>MyFans</h1>
+    </div>
+    <nav class="desktop-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="wallet.html">Wallet</a></li>
+        <li><a href="subscriptions.html">Subscriptions</a></li>
+        <li class="admin-only"><a href="admin-dashboard.html">Dashboard</a></li>
+        <li class="theme-toggle">
+          <button id="theme-toggle-btn">
+            <i class="fas fa-moon"></i>
+          </button>
+        </li>
+        <li class="user-menu">
+          <div class="user-avatar">
+            <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+          </div>
+          <div class="dropdown-menu">
+            <a href="profile.html">Profile</a>
+            <a href="settings.html">Settings</a>
+            <a href="#" id="logout-btn">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="container">
+  <div class="post-details-container">
+    <div class="post-navigation">
+      <a href="index.html" class="back-link">
+        <i class="fas fa-arrow-left"></i> Back to Feed
+      </a>
+    </div>
+    
+    <div class="post-details-card">
+      <div class="post-header">
+        <div class="post-avatar">
+          <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+        </div>
+        <div class="post-user-info">
+          <div class="post-username">
+            John Doe <span class="verified-badge admin"><i class="fas fa-check-circle"></i></span>
+          </div>
+          <div class="post-date">May 15, 2023</div>
+        </div>
+        <div class="post-options">
+          <button class="post-options-btn">
+            <i class="fas fa-ellipsis-h"></i>
+          </button>
+          <div class="post-options-menu">
+            <a href="#" class="report-post">Report Post</a>
+            <a href="#" class="share-post">Share Post</a>
+            <a href="#" class="admin-only edit-post">Edit Post</a>
+            <a href="#" class="admin-only delete-post">Delete Post</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="post-content">
+        <div class="post-media">
+          <img src="/placeholder.svg?height=600&width=800" alt="Post Image">
+        </div>
+        <div class="post-caption">
+          <p>Welcome to my exclusive content! Subscribe for more premium posts and behind-the-scenes content. This is an example of a detailed post caption that might be longer than what you'd see in the feed.</p>
+          <p>I'll be sharing more content like this regularly, so stay tuned!</p>
+        </div>
+      </div>
+      
+      <div class="post-actions">
+        <div class="post-action like-action" data-post-id="1">
+          <i class="far fa-heart"></i>
+          <span>245</span>
+        </div>
+        <div class="post-action comment-action" data-post-id="1">
+          <i class="far fa-comment"></i>
+          <span>32</span>
+        </div>
+        <div class="post-action tip-action" data-post-id="1">
+          <i class="fas fa-coins"></i>
+          <span>Tip</span>
+        </div>
+        <div class="post-action share-action" data-post-id="1">
+          <i class="far fa-share-square"></i>
+          <span>Share</span>
+        </div>
+      </div>
+      
+      <div class="post-stats">
+        <div class="post-likes">245 likes</div>
+      </div>
+      
+      <div class="post-comments-section">
+        <h3>Comments</h3>
+        <div class="comments-list">
+          <div class="comment-item">
+            <div class="comment-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <div class="comment-username">Jane Smith <span class="verified-badge user"><i class="fas fa-check-circle"></i></span></div>
+                <div class="comment-date">May 15, 2023</div>
+              </div>
+              <div class="comment-text">
+                <p>Great content! Looking forward to more.</p>
+              </div>
+              <div class="comment-actions">
+                <button class="comment-like-btn">
+                  <i class="far fa-heart"></i> <span>12</span>
+                </button>
+                <button class="comment-reply-btn">
+                  Reply
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="comment-item">
+            <div class="comment-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <div class="comment-username">Mike Johnson</div>
+                <div class="comment-date">May 14, 2023</div>
+              </div>
+              <div class="comment-text">
+                <p>This is amazing! Can't wait to see what's next.</p>
+              </div>
+              <div class="comment-actions">
+                <button class="comment-like-btn">
+                  <i class="far fa-heart"></i> <span>8</span>
+                </button>
+                <button class="comment-reply-btn">
+                  Reply
+                </button>
+              </div>
+            </div>
+          </div>
+          
+          <div class="comment-item with-replies">
+            <div class="comment-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+            </div>
+            <div class="comment-content">
+              <div class="comment-header">
+                <div class="comment-username">Sarah Williams</div>
+                <div class="comment-date">May 13, 2023</div>
+              </div>
+              <div class="comment-text">
+                <p>I have a question about your content. Do you post regularly?</p>
+              </div>
+              <div class="comment-actions">
+                <button class="comment-like-btn">
+                  <i class="far fa-heart"></i> <span>5</span>
+                </button>
+                <button class="comment-reply-btn">
+                  Reply
+                </button>
+              </div>
+              
+              <div class="comment-replies">
+                <div class="comment-item reply">
+                  <div class="comment-avatar">
+                    <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+                  </div>
+                  <div class="comment-content">
+                    <div class="comment-header">
+                      <div class="comment-username">John Doe <span class="verified-badge admin"><i class="fas fa-check-circle"></i></span></div>
+                      <div class="comment-date">May 13, 2023</div>
+                    </div>
+                    <div class="comment-text">
+                      <p>Yes, I post new content at least 3 times a week!</p>
+                    </div>
+                    <div class="comment-actions">
+                      <button class="comment-like-btn">
+                        <i class="far fa-heart"></i> <span>3</span>
+                      </button>
+                      <button class="comment-reply-btn">
+                        Reply
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="add-comment-section">
+          <div class="comment-avatar">
+            <img src="/placeholder.svg?height=40&width=40" alt="Your Avatar">
+          </div>
+          <div class="comment-input-container">
+            <textarea placeholder="Add a comment..." class="comment-input"></textarea>
+            <button class="post-comment-btn" disabled>Post</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="related-posts">
+      <h3>More Posts</h3>
+      <div class="related-posts-grid">
+        <div class="related-post-card">
+          <div class="related-post-media">
+            <img src="/placeholder.svg?height=200&width=200" alt="Related Post">
+          </div>
+          <div class="related-post-info">
+            <div class="related-post-caption">Check out this amazing view from my vacation!</div>
+            <div class="related-post-stats">
+              <span><i class="fas fa-heart"></i> 312</span>
+              <span><i class="fas fa-comment"></i> 45</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="related-post-card premium">
+          <div class="related-post-media">
+            <img src="/placeholder.svg?height=200&width=200" alt="Related Post" class="blurred">
+            <div class="premium-overlay">
+              <p>Premium</p>
+              <div class="premium-price">$5.99</div>
+            </div>
+          </div>
+          <div class="related-post-info">
+            <div class="related-post-caption">Exclusive behind-the-scenes content from my latest photoshoot.</div>
+            <div class="related-post-stats">
+              <span><i class="fas fa-heart"></i> 189</span>
+              <span><i class="fas fa-comment"></i> 23</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="related-post-card">
+          <div class="related-post-media">
+            <img src="/placeholder.svg?height=200&width=200" alt="Related Post">
+          </div>
+          <div class="related-post-info">
+            <div class="related-post-caption">Thank you all for the amazing support!</div>
+            <div class="related-post-stats">
+              <span><i class="fas fa-heart"></i> 278</span>
+              <span><i class="fas fa-comment"></i> 34</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="related-post-card">
+          <div class="related-post-media">
+            <img src="/placeholder.svg?height=200&width=200" alt="Related Post">
+          </div>
+          <div class="related-post-info">
+            <div class="related-post-caption">Just a regular day in the life...</div>
+            <div class="related-post-stats">
+              <span><i class="fas fa-heart"></i> 156</span>
+              <span><i class="fas fa-comment"></i> 18</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Mobile Bottom Navigation -->
+<nav class="mobile-nav">
+  <ul class="user-nav">
+    <li>
+      <a href="index.html">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a href="messages.html">
+        <i class="fas fa-comment"></i>
+        <span>Messages</span>
+      </a>
+    </li>
+    <li>
+      <a href="profile.html">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </li>
+    <li>
+      <a href="settings.html">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+  <ul class="admin-nav">
+    <li>
+      <a href="index.html">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a href="create-post.html">
+        <i class="fas fa-plus"></i>
+        <span>Add Post</span>
+      </a>
+    </li>
+    <li>
+      <a href="messages.html">
+        <i class="fas fa-comment"></i>
+        <span>Messages</span>
+      </a>
+    </li>
+    <li>
+      <a href="profile.html">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Modals -->
+<div class="modal" id="tip-modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>Send a Tip</h2>
+    <div class="tip-amounts">
+      <button class="tip-amount" data-amount="5">$5</button>
+      <button class="tip-amount" data-amount="10">$10</button>
+      <button class="tip-amount" data-amount="20">$20</button>
+      <button class="tip-amount" data-amount="50">$50</button>
+      <button class="tip-amount" data-amount="100">$100</button>
+      <button class="tip-amount custom" data-amount="custom">Custom</button>
+    </div>
+    <div class="custom-tip-amount">
+      <label for="custom-amount">Enter amount:</label>
+      <div class="custom-amount-input">
+        <span>$</span>
+        <input type="number" id="custom-amount" min="1" step="1" placeholder="Enter amount">
+      </div>
+    </div>
+    <div class="tip-message">
+      <label for="tip-message">Add a message (optional):</label>
+      <textarea id="tip-message" placeholder="Write a message..."></textarea>
+    </div>
+    <div class="wallet-balance">
+      <p>Wallet Balance: <span id="wallet-balance-tip">$100.00</span></p>
+    </div>
+    <button class="btn btn-primary btn-block" id="send-tip-btn">Send Tip</button>
+  </div>
+</div>
+
+<div class="modal" id="share-modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>Share Post</h2>
+    <div class="share-link">
+      <input type="text" id="post-link" value="https://myfans.com/post/123456" readonly>
+      <button id="copy-link-btn" class="btn btn-primary">Copy</button>
+    </div>
+    <div class="social-share-modal">
+      <h3>Share on Social Media</h3>
+      <div class="social-icons">
+        <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <div class="toast-content">
+    <i class="fas fa-check-circle"></i>
+    <div class="toast-message">Success message here</div>
+  </div>
+  <div class="toast-progress"></div>
+</div>
+
+<!-- Scripts -->
+<script src="js/auth.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/post.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

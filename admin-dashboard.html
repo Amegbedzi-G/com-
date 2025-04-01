@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyFans | Admin Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/admin-dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.css">
+</head>
+<body class="light-mode">
+  <!-- Header Navigation (Desktop) -->
+  <header class="desktop-header">
+    <div class="container">
+      <div class="logo">
+        <h1>MyFans</h1>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li><a href="wallet.html">Wallet</a></li>
+          <li><a href="subscriptions.html">Subscriptions</a></li>
+          <li class="admin-only"><a href="admin-dashboard.html" class="active">Dashboard</a></li>
+          <li class="theme-toggle">
+            <button id="theme-toggle-btn">
+              <i class="fas fa-moon"></i>
+            </button>
+          </li>
+          <li class="user-menu">
+            <div class="user-avatar">
+              <img src="images/image1.png" alt="User Avatar" style="object-fit: fill;">
+            </div>
+            <div class="dropdown-menu">
+              <a href="profile.html">Profile</a>
+              <a href="settings.html">Settings</a>
+              <a href="#" id="logout-btn">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="dashboard-container">
+      <div class="dashboard-header">
+        <h1>Admin Dashboard</h1>
+        <div class="dashboard-actions">
+          <button class="btn btn-primary" id="create-post-btn">
+            <i class="fas fa-plus"></i> Create Post
+          </button>
+          <button class="btn btn-outline" id="export-data-btn">
+            <i class="fas fa-download"></i> Export Data
+          </button>
+        </div>
+      </div>
+      
+      <div class="dashboard-stats">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-info">
+            <h3>Total Subscribers</h3>
+            <div class="stat-value">1,245</div>
+            <div class="stat-change positive">
+              <i class="fas fa-arrow-up"></i> 12% from last month
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+          <div class="stat-info">
+            <h3>Total Earnings</h3>
+            <div class="stat-value">$8,492.50</div>
+            <div class="stat-change positive">
+              <i class="fas fa-arrow-up"></i> 8% from last month
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-image"></i>
+          </div>
+          <div class="stat-info">
+            <h3>Total Posts</h3>
+            <div class="stat-value">87</div>
+            <div class="stat-change positive">
+              <i class="fas fa-arrow-up"></i> 5% from last month
+            </div>
+          </div>
+        </div>
+        
+        <div class="stat-card">
+          <div class="stat-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="stat-info">
+            <h3>Total Likes</h3>
+            <div class="stat-value">12,456</div>
+            <div class="stat-change positive">
+              <i class="fas fa-arrow-up"></i> 15% from last month
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dashboard-charts">
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>Revenue Overview</h3>
+            <div class="chart-period">
+              <button class="period-btn active" data-period="week">Week</button>
+              <button class="period-btn" data-period="month">Month</button>
+              <button class="period-btn" data-period="year">Year</button>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="revenue-chart"></canvas>
+          </div>
+        </div>
+        
+        <div class="chart-card">
+          <div class="chart-header">
+            <h3>Subscriber Growth</h3>
+            <div class="chart-period">
+              <button class="period-btn active" data-period="week">Week</button>
+              <button class="period-btn" data-period="month">Month</button>
+              <button class="period-btn" data-period="year">Year</button>
+            </div>
+          </div>
+          <div class="chart-container">
+            <canvas id="subscribers-chart"></canvas>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dashboard-content">
+        <div class="dashboard-tabs">
+          <button class="dashboard-tab active" data-tab="content">Content Management</button>
+          <button class="dashboard-tab" data-tab="users">User Management</button>
+          <button class="dashboard-tab" data-tab="verification">Verification Requests <span class="badge">3</span></button>
+          <button class="dashboard-tab" data-tab="payments">Payment Requests <span class="badge">5</span></button>
+        </div>
+        
+        <div class="dashboard-tab-content active" id="content-tab">
+          <div class="content-management">
+            <div class="content-filters">
+              <div class="search-filter">
+                <input type="text" placeholder="Search posts...">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="type-filter">
+                <select>
+                  <option value="all">All Types</option>
+                  <option value="free">Free</option>
+                  <option value="premium">Premium</option>
+                </select>
+              </div>
+              <div class="date-filter">
+                <select>
+                  <option value="newest">Newest First</option>
+                  <option value="oldest">Oldest First</option>
+                  <option value="popular">Most Popular</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="content-list">
+              <div class="content-item">
+                <div class="content-thumbnail">
+                  <img src="images/image1.png" alt="User Avatar" style="object-fit: fill;" alt="Post Thumbnail">
+                  <div class="content-type premium">Premium</div>
+                </div>
+                <div class="content-details">
+                  <h4>Behind the scenes from my latest photoshoot</h4>
+                  <div class="content-meta">
+                    <span><i class="fas fa-calendar"></i> May 15, 2023</span>
+                    <span><i class="fas fa-heart"></i> 245 likes</span>
+                    <span><i class="fas fa-comment"></i> 32 comments</span>
+                  </div>
+                  <p>Exclusive behind-the-scenes content from my latest photoshoot. Unlock to see more!</p>
+                </div>
+                <div class="content-actions">
+                  <button class="btn btn-sm btn-outline">Edit</button>
+                  <button class="btn btn-sm btn-outline">Preview</button>
+                  <button class="btn btn-sm btn-danger">Delete</button>
+                </div>
+              </div>
+              
+              <div class="content-item">
+                <div class="content-thumbnail">
+                  <img src="images/image1.png" alt="User Avatar" style="object-fit: fill;" alt="Post Thumbnail">
+                  <div class="content-type free">Free</div>
+                </div>
+                <div class="content-details">
+                  <h4>Check out this amazing view from my vacation!</h4>
+                  <div class="content-meta">
+                    <span><i class="fas fa-calendar"></i> May 13, 2023</span>
+                    <span><i class="fas fa-heart"></i> 312 likes</span>
+                    <span><i class="fas fa-comment"></i> 45 comments</span>
+                  </div>
+                  <p>Check out this amazing view from my vacation! More exclusive content coming soon.</p>
+                </div>
+                <div class="content-actions">
+                  <button class="btn btn-sm btn-outline">Edit</button>
+                  <button class="btn btn-sm btn-outline">Preview</button>
+                  <button class="btn btn-sm btn-danger">Delete</button>
+                </div>
+              </div>
+              
+              <div class="content-item">
+                <div class="content-thumbnail">
+                  <img src="images/image1.png" alt="User Avatar" style="object-fit: fill;" alt="Post Thumbnail">
+                  <div class="content-type premium">Premium</div>
+                </div>
+                <div class="content-details">
+                  <h4>Premium subscribers only! Exclusive content from my latest project</h4>
+                  <div class="content-meta">
+                    <span><i class="fas fa-calendar"></i> May 12, 2023</span>
+                    <span><i class="fas fa-heart"></i> 156 likes</span>
+                    <span><i class="fas fa-comment"></i> 18 comments</span>
+                  </div>
+                  <p>Premium subscribers only! Exclusive content from my latest project.</p>
+                </div>
+                <div class="content-actions">
+                  <button class="btn btn-sm btn-outline">Edit</button>
+                  <button class="btn btn-sm btn-outline">Preview</button>
+                  <button class="btn btn-sm btn-danger">Delete</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="pagination">
+              <button class="pagination-btn prev" disabled>
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="pagination-btn active">1</button>
+              <button class="pagination-btn">2</button>
+              <button class="pagination-btn">3</button>
+              <span class="pagination-ellipsis">...</span>
+              <button class="pagination-btn">10</button>
+              <button class="pagination-btn next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="dashboard-tab-content" id="users-tab">
+          <div class="user-management">
+            <div class="user-filters">
+              <div class="search-filter">
+                <input type="text" placeholder="Search users...">
+                <i class="fas fa-search"></i>
+              </div>
+              <div class="status-filter">
+                <select>
+                  <option value="all">All Status</option>
+                  <option value="active">Active</option>
+                  <option value="inactive">Inactive</option>
+                  <option value="subscribed">Subscribed</option>
+                </select>
+              </div>
+              <div class="date-filter">
+                <select>
+                  <option value="newest">Newest First</option>
+                  <option value="oldest">Oldest First</option>
+                </select>
+              </div>
+            </div>
+            
+            <div class="user-list">
+              <div class="user-item">
+                <div class="user-avatar">
+                  <img src=""images/image1.png" alt="User Avatar" style="object-fit: fill;"" alt="User Avatar">
+                  <span class="user-status active"></span>
+                </div>
+                <div class="user-details">
+                  <h4>John Smith <span class="verified-badge user"><i class="fas fa-check-circle"></i></span></h4>
+                  <div class="user-meta">
+                    <span><i class="fas fa-envelope"></i> john.smith@example.com</span>
+                    <span><i class="fas fa-phone"></i> +1 (555) 123-4567</span>
+                    <span><i class="fas fa-map-marker-alt"></i> United States</span>
+                  </div>
+                  <div class="user-subscription">
+                    <span class="subscription-badge monthly">Monthly Subscription</span>
+                    <span class="subscription-date">Renews on June 15, 2023</span>
+                  </div>
+                </div>
+                <div class="user-actions">
+                  <button class="btn btn-sm btn-outline">Message</button>
+                  <button class="btn btn-sm btn-outline">Edit</button>
+                  <button class="btn btn-sm btn-danger">Deactivate</button>
+                </div>
+              </div>
+              
+              <div class="user-item">
+                <div class="user-avatar">
+                  <img src="images/image1.png" alt="User Avatar" style="object-fit: fill;" alt="User Avatar">
+                  <span class="user-status active"></span>
+                </div>
+                <div class="user-details">
+                  <h4>Jane Doe</h4>
+                  <div class="user-meta">
+                    <span><i class="fas fa-envelope"></i> jane.doe@example.com</span>
+                    <span><i class="fas fa-phone"></i> +1 (555) 987-6543</span>
+                    <span><i class="fas fa-map-marker-alt"></i> Canada</span>
+                  </div>
+                  <div class="user-subscription">
+                    <span class="subscription-badge yearly">Yearly Subscription</span>
+                    <span class="subscription-date">Renews on April 10, 2024</span>
+                  </div>
+                </div>
+                <div class="user-actions">
+                  <button class="btn btn-sm btn-outline">Message</button>
+                  <button class="btn btn-sm btn-outline">Edit</button>
+                  <button class="btn btn-sm btn-danger">Deactivate</button>
+                </div>
+              </div>
+              
+              <div class="user-item">
+                <div class="user-avatar">
+                  <img src="images/image1.png" alt="User Avatar" style="object-fit: fill;" alt="User Avatar">
+                  <span class="user-status inactive"></span>
+                </div>
+                <div class="user-details">
+                  <h4>Mike Johnson</h4>
+                  <div class="user-meta">
+                    <span><i class="fas fa-envelope"></i> mike.johnson@example.com</span>
+                    <span><i class="fas fa-phone"></i> +1 (555) 456-7890</span>
+                    <span><i class="fas fa-map-marker-alt"></i> United Kingdom</span>
+                  </div>
+                  <div class="user-subscription">
+                    <span class="subscription-badge none">No Subscription</span>
+                  </div>
+                </div>
+                <div class="user-actions">
+                  <button class="btn btn-sm btn-outline">Message</button>
+                  <button class="btn btn-sm btn-outline">Edit</button>
+                  <button class="btn btn-sm btn-success">Activate</button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="pagination">
+              <button class="pagination-btn prev" disabled>
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button class="pagination-btn active">1</button>
+              <button class="pagination-btn">2</button>
+              <button class="pagination-btn">3</button>
+              <span class="pagination-ellipsis">...</span>
+              <button class="pagination-btn">15</button>
+              <button class="pagination-btn next">
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+        <div class="dashboard-tab-content" id="verification-tab">
+          <div class="verification-requests">
+            <h3>Pending Verification Requests</h3>
+            
+            <div class="verification-list">
+              <div class="verification-item">
+                <div class="verification-user">
+                  <div class="user-avatar">
+                    <img src="images/image1.png" alt="User Avatar" style="object-fit: fill;" alt="User Avatar">
+                  </div>
+                  <div class="user-details">
+                    <h4>Sarah Williams</h4>
+                    <div class="user-meta">
+                      <span><i class="fas fa-envelope"></i> sarah.williams@example.com</span>
+                      <span><i class="fas fa-calendar"></i> Requested: May 18, 2023</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="verification-documents">
+                  <div class="document-preview">
+                    <img src="/placeholder.svg?height=100&width=160" alt="ID Front">
+                    <span>ID Front</span>
+                  </div>
+                  <div class="document-preview">
+                    <img src="/placeholder.svg?height=100&width=160" alt="ID Back">
+                    <span>ID Back</span>
+                  </div>
+                </div>
+                <div class="verification-address">
+                  <h5>Address Information</h5>
+                  <p>123 Main Street, Apt 4B<br>New York, NY 10001<br>United States</p>
+                </div>
+                <div class="verification-actions">
+                  <button class="btn btn-success">Approve</button>
+                  <button class="btn btn-danger">Deny</button>
+                  <button class="btn btn-outline">Request More Info</button>
+                </div>
+              </div>
+              
+              <div class="verification-item">
+                <div class="verification-user">
+                  <div class="user-avatar">
+                    <img src="/placeholder.svg?height=50&width=50" alt="User Avatar">
+                  </div>
+                  <div class="user-details">
+                    <h4>Robert Brown</h4>
+                    <div class="user-meta">
+                      <span><i class="fas fa-envelope"></i> robert.brown@example.com</span>
+                      <span><i class="fas fa-calendar"></i> Requested: May 17, 2023</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="verification-documents">
+                  <div class="document-preview">
+                    <img src="/placeholder.svg?height=100&width=160" alt="ID Front">
+                    <span>ID Front</span>
+                  </div>
+                  <div class="document-preview">
+                    <img src="/placeholder.svg?height=100&width=160" alt="ID Back">
+                    <span>ID Back</span>
+                  </div>
+                </div>
+                <div class="verification-address">
+                  <h5>Address Information</h5>
+                  <p>456 Oak Avenue<br>Los Angeles, CA 90001<br>United States</p>
+                </div>
+                <div class="verification-actions">
+                  <button class="btn btn-success">Approve</button>
+                  <button class="btn btn-danger">Deny</button>
+                  <button class="btn btn-outline">Request More Info</button>
+                </div>
+              </div>
+              
+              <div class="verification-item">
+                <div class="verification-user">
+                  <div class="user-avatar">
+                    <img src="/placeholder.svg?height=50&width=50" alt="User Avatar">
+                  </div>
+                  <div class="user-details">
+                    <h4>Emily Davis</h4>
+                    <div class="user-meta">
+                      <span><i class="fas fa-envelope"></i> emily.davis@example.com</span>
+                      <span><i class="fas fa-calendar"></i> Requested: May 16, 2023</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="verification-documents">
+                  <div class="document-preview">
+                    <img src="/placeholder.svg?height=100&width=160" alt="ID Front">
+                    <span>ID Front</span>
+                  </div>
+                  <div class="document-preview">
+                    <img src="/placeholder.svg?height=100&width=160" alt="ID Back">
+                    <span>ID Back</span>
+                  </div>
+                </div>
+                <div class="verification-address">
+                  <h5>Address Information</h5>
+                  <p>789 Pine Street<br>Chicago, IL 60601<br>United States</p>
+                </div>
+                <div class="verification-actions">
+                  <button class="btn btn-success">Approve</button>
+                  <button class="btn btn-danger">Deny</button>
+                  <button class="btn btn-outline">Request More Info</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="dashboard-tab-content" id="payments-tab">
+          <div class="payment-requests">
+            <h3>Pending Payment Requests</h3>
+            
+            <div class="payment-list">
+              <div class="payment-item">
+                <div class="payment-user">
+                  <div class="user-avatar">
+                    <img src="/placeholder.svg?height=50&width=50" alt="User Avatar">
+                  </div>
+                  <div class="user-details">
+                    <h4>David Wilson</h4>
+                    <div class="user-meta">
+                      <span><i class="fas fa-envelope"></i> david.wilson@example.com</span>
+                      <span><i class="fas fa-calendar"></i> Requested: May 18, 2023</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="payment-details">
+                  <div class="payment-amount">
+                    <h5>Amount</h5>
+                    <p class="amount">$50.00</p>
+                  </div>
+                  <div class="payment-method">
+                    <h5>Payment Method</h5>
+                    <p>Bank Transfer</p>
+                  </div>
+                  <div class="payment-status">
+                    <h5>Status</h5>
+                    <p class="status pending">Pending Proof</p>
+                  </div>
+                </div>
+                <div class="payment-proof">
+                  <h5>Payment Proof</h5>
+                  <div class="proof-image">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Payment Proof">
+                    <button class="btn btn-sm btn-outline view-proof">View Full Image</button>
+                  </div>
+                </div>
+                <div class="payment-actions">
+                  <button class="btn btn-success">Approve</button>
+                  <button class="btn btn-danger">Reject</button>
+                  <button class="btn btn-outline">Request More Info</button>
+                </div>
+              </div>
+              
+              <div class="payment-item">
+                <div class="payment-user">
+                  <div class="user-avatar">
+                    <img src="/placeholder.svg?height=50&width=50" alt="User Avatar">
+                  </div>
+                  <div class="user-details">
+                    <h4>Jennifer Taylor</h4>
+                    <div class="user-meta">
+                      <span><i class="fas fa-envelope"></i> jennifer.taylor@example.com</span>
+                      <span><i class="fas fa-calendar"></i> Requested: May 17, 2023</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="payment-details">
+                  <div class="payment-amount">
+                    <h5>Amount</h5>
+                    <p class="amount">$100.00</p>
+                  </div>
+                  <div class="payment-method">
+                    <h5>Payment Method</h5>
+                    <p>Bank Transfer</p>
+                  </div>
+                  <div class="payment-status">
+                    <h5>Status</h5>
+                    <p class="status pending">Pending Proof</p>
+                  </div>
+                </div>
+                <div class="payment-proof">
+                  <h5>Payment Proof</h5>
+                  <div class="proof-image">
+                    <img src="/placeholder.svg?height=150&width=200" alt="Payment Proof">
+                    <button class="btn btn-sm btn-outline view-proof">View Full Image</button>
+                  </div>
+                </div>
+                <div class="payment-actions">
+                  <button class="btn btn-success">Approve</button>
+                  <button class="btn btn-danger">Reject</button>
+                  <button class="btn btn-outline">Request More Info</button>
+                </div>
+              </div>
+              
+              <div class="payment-item">
+                <div class="payment-user">
+                  <div class="user-avatar">
+                    <img src="/placeholder.svg?height=50&width=50" alt="User Avatar">
+                  </div>
+                  <div class="user-details">
+                    <h4>Michael Anderson</h4>
+                    <div class="user-meta">
+                      <span><i class="fas fa-envelope"></i> michael.anderson@example.com</span>
+                      <span><i class="fas fa-calendar"></i> Requested: May 16, 2023</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="payment-details">
+                  <div class="payment-amount">
+                    <h5>Amount</h5>
+                    <p class="amount">$75.00</p>
+                  </div>
+                  <div class="payment-method">
+                    <h5>Payment Method</h5>
+                    <p>Bank Transfer</p>
+                  </div>
+                  <div class="payment-status">
+                    <h5>Status</h5>
+                    <p class="status waiting">Waiting for Payment</p>
+                  </div>
+                </div>
+                <div class="payment-proof">
+                  <h5>Payment Proof</h5>
+                  <p class="no-proof">No proof uploaded yet</p>
+                  <div class="payment-info-form">
+                    <h5>Add Payment Details</h5>
+                    <div class="form-group">
+                      <label for="bank-name">Bank Name</label>
+                      <input type="text" id="bank-name" placeholder="Enter bank name">
+                    </div>
+                    <div class="form-group">
+                      <label for="account-name">Account Name</label>
+                      <input type="text" id="account-name" placeholder="Enter account name">
+                    </div>
+                    <div class="form-group">
+                      <label for="account-number">Account Number</label>
+                      <input type="text" id="account-number" placeholder="Enter account number">
+                    </div>
+                    <button class="btn btn-primary btn-sm">Send Payment Details</button>
+                  </div>
+                </div>
+                <div class="payment-actions">
+                  <button class="btn btn-outline" disabled>Approve</button>
+                  <button class="btn btn-danger">Cancel Request</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-nav">
+    <ul class="admin-nav">
+      <li>
+        <a href="index.html">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="create-post.html">
+          <i class="fas fa-plus"></i>
+          <span>Add Post</span>
+        </a>
+      </li>
+      <li>
+        <a href="messages.html">
+          <i class="fas fa-comment"></i>
+          <span>Messages</span>
+        </a>
+      </li>
+      <li>
+        <a href="profile.html">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Modals -->
+  <div class="modal" id="create-post-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Create New Post</h2>
+      <form id="create-post-form">
+        <div class="form-group">
+          <label for="post-caption">Caption</label>
+          <textarea id="post-caption" rows="4" placeholder="Write a caption for your post..."></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label>Media</label>
+          <div class="media-upload-area" id="media-upload-area">
+            <div class="upload-placeholder">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <p>Drag & drop images or videos here, or click to browse</p>
+              <input type="file" id="media-upload" accept="image/*,video/*" multiple hidden>
+            </div>
+          </div>
+          <div class="media-preview" id="media-preview"></div>
+        </div>
+        
+        <div class="form-group">
+          <label>Post Type</label>
+          <div class="post-type-options">
+            <div class="post-type-option">
+              <input type="radio" name="post-type" id="post-type-free" value="free" checked>
+              <label for="post-type-free">
+                <i class="fas fa-unlock"></i>
+                <span>Free Content</span>
+                <p>Available to all users</p>
+              </label>
+            </div>
+            <div class="post-type-option">
+              <input type="radio" name="post-type" id="post-type-premium" value="premium">
+              <label for="post-type-premium">
+                <i class="fas fa-lock"></i>
+                <span>Premium Content</span>
+                <p>Only available to paying users</p>
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="form-group premium-options" style="display: none;">
+          <label for="post-price">Price</label>
+          <div class="price-input">
+            <span>$</span>
+            <input type="number" id="post-price" min="0.99" step="0.01" value="4.99">
+          </div>
+        </div>
+        
+        <div class="form-actions">
+          <button type="button" class="btn btn-outline" id="post-preview-btn">Preview</button>
+          <button type="submit" class="btn btn-primary">Publish Post</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="view-proof-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Payment Proof</h2>
+      <div class="proof-image-full">
+        <img src="/placeholder.svg?height=600&width=800" alt="Payment Proof">
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">
+    <div class="toast-content">
+      <i class="fas fa-check-circle"></i>
+      <div class="toast-message">Success message here</div>
+    </div>
+    <div class="toast-progress"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/admin-dashboard.js"></script>
+</body>
+</html>
+

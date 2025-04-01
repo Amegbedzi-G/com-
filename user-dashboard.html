@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyFans | User Dashboard</title>
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/dashboard.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+<!-- Header Navigation (Desktop) -->
+<header class="desktop-header">
+  <div class="container">
+    <div class="logo">
+      <h1>MyFans</h1>
+    </div>
+    <nav class="desktop-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="wallet.html">Wallet</a></li>
+        <li><a href="subscriptions.html">Subscriptions</a></li>
+        <li class="admin-only"><a href="admin-dashboard.html">Dashboard</a></li>
+        <li class="theme-toggle">
+          <button id="theme-toggle-btn">
+            <i class="fas fa-moon"></i>
+          </button>
+        </li>
+        <li class="user-menu">
+          <div class="user-avatar">
+            <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+          </div>
+          <div class="dropdown-menu">
+            <a href="profile.html">Profile</a>
+            <a href="settings.html">Settings</a>
+            <a href="#" id="logout-btn">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="container">
+  <div class="dashboard-container">
+    <div class="dashboard-header">
+      <h1>User Dashboard</h1>
+      <div class="user-greeting">
+        <p>Welcome back, <span class="user-name">User</span>!</p>
+      </div>
+    </div>
+    
+    <div class="dashboard-overview">
+      <div class="overview-card">
+        <div class="overview-icon">
+          <i class="fas fa-wallet"></i>
+        </div>
+        <div class="overview-details">
+          <h3>Wallet Balance</h3>
+          <p class="overview-value">$100.00</p>
+          <a href="wallet.html" class="overview-action">Top Up</a>
+        </div>
+      </div>
+      
+      <div class="overview-card">
+        <div class="overview-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="overview-details">
+          <h3>Subscription</h3>
+          <p class="overview-value">Monthly Plan</p>
+          <p class="overview-info">Renews on June 15, 2023</p>
+        </div>
+      </div>
+      
+      <div class="overview-card">
+        <div class="overview-icon">
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="overview-details">
+          <h3>Liked Posts</h3>
+          <p class="overview-value">24</p>
+          <a href="#" class="overview-action" id="view-liked-posts">View All</a>
+        </div>
+      </div>
+      
+      <div class="overview-card">
+        <div class="overview-icon">
+          <i class="fas fa-comment"></i>
+        </div>
+        <div class="overview-details">
+          <h3>Comments</h3>
+          <p class="overview-value">18</p>
+          <a href="#" class="overview-action" id="view-comments">View All</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="dashboard-content">
+      <div class="dashboard-tabs">
+        <button class="dashboard-tab active" data-tab="activity">Recent Activity</button>
+        <button class="dashboard-tab" data-tab="purchases">Purchases</button>
+        <button class="dashboard-tab" data-tab="saved">Saved Posts</button>
+        <button class="dashboard-tab" data-tab="verification">Verification Status</button>
+      </div>
+      
+      <div class="dashboard-tab-content active" id="activity-tab">
+        <div class="activity-feed">
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <div class="activity-details">
+              <p>You liked a post by <strong>John Doe</strong></p>
+              <p class="activity-time">2 hours ago</p>
+            </div>
+            <div class="activity-preview">
+              <img src="/placeholder.svg?height=60&width=60" alt="Post Preview">
+            </div>
+          </div>
+          
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="fas fa-comment"></i>
+            </div>
+            <div class="activity-details">
+              <p>You commented on a post by <strong>John Doe</strong></p>
+              <p class="activity-comment">"Great content! Looking forward to more."</p>
+              <p class="activity-time">5 hours ago</p>
+            </div>
+            <div class="activity-preview">
+              <img src="/placeholder.svg?height=60&width=60" alt="Post Preview">
+            </div>
+          </div>
+          
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="fas fa-unlock"></i>
+            </div>
+            <div class="activity-details">
+              <p>You unlocked premium content by <strong>John Doe</strong></p>
+              <p class="activity-time">Yesterday</p>
+            </div>
+            <div class="activity-preview">
+              <img src="/placeholder.svg?height=60&width=60" alt="Post Preview">
+            </div>
+          </div>
+          
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="fas fa-coins"></i>
+            </div>
+            <div class="activity-details">
+              <p>You sent a tip to <strong>John Doe</strong></p>
+              <p class="activity-tip">$10.00</p>
+              <p class="activity-time">2 days ago</p>
+            </div>
+          </div>
+          
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="fas fa-star"></i>
+            </div>
+            <div class="activity-details">
+              <p>You subscribed to <strong>John Doe's</strong> monthly plan</p>
+              <p class="activity-time">1 week ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dashboard-tab-content" id="purchases-tab">
+        <div class="purchases-list">
+          <div class="purchase-item">
+            <div class="purchase-details">
+              <h4>Premium Content</h4>
+              <p>Exclusive behind-the-scenes content from my latest photoshoot.</p>
+              <div class="purchase-meta">
+                <span><i class="fas fa-calendar"></i> May 15, 2023</span>
+                <span><i class="fas fa-dollar-sign"></i> $5.99</span>
+              </div>
+            </div>
+            <div class="purchase-preview">
+              <img src="/placeholder.svg?height=80&width=80" alt="Purchase Preview">
+            </div>
+            <div class="purchase-actions">
+              <a href="#" class="btn btn-sm btn-outline">View Content</a>
+            </div>
+          </div>
+          
+          <div class="purchase-item">
+            <div class="purchase-details">
+              <h4>Premium Content</h4>
+              <p>Premium subscribers only! Exclusive content from my latest project.</p>
+              <div class="purchase-meta">
+                <span><i class="fas fa-calendar"></i> May 12, 2023</span>
+                <span><i class="fas fa-dollar-sign"></i> $9.99</span>
+              </div>
+            </div>
+            <div class="purchase-preview">
+              <img src="/placeholder.svg?height=80&width=80" alt="Purchase Preview">
+            </div>
+            <div class="purchase-actions">
+              <a href="#" class="btn btn-sm btn-outline">View Content</a>
+            </div>
+          </div>
+          
+          <div class="purchase-item">
+            <div class="purchase-details">
+              <h4>Pay-Per-View Message</h4>
+              <p>Exclusive content shared in a private message.</p>
+              <div class="purchase-meta">
+                <span><i class="fas fa-calendar"></i> May 10, 2023</span>
+                <span><i class="fas fa-dollar-sign"></i> $3.99</span>
+              </div>
+            </div>
+            <div class="purchase-preview">
+              <img src="/placeholder.svg?height=80&width=80" alt="Purchase Preview">
+            </div>
+            <div class="purchase-actions">
+              <a href="#" class="btn btn-sm btn-outline">View Message</a>
+            </div>
+          </div>
+          
+          <div class="purchase-item">
+            <div class="purchase-details">
+              <h4>Monthly Subscription</h4>
+              <p>Access to all premium content for one month.</p>
+              <div class="purchase-meta">
+                <span><i class="fas fa-calendar"></i> May 5, 2023</span>
+                <span><i class="fas fa-dollar-sign"></i> $14.99</span>
+              </div>
+            </div>
+            <div class="purchase-actions">
+              <a href="subscriptions.html" class="btn btn-sm btn-outline">Manage Subscription</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dashboard-tab-content" id="saved-tab">
+        <div class="saved-posts-grid">
+          <div class="saved-post-card">
+            <div class="saved-post-media">
+              <img src="/placeholder.svg?height=200&width=200" alt="Saved Post">
+            </div>
+            <div class="saved-post-info">
+              <div class="saved-post-author">
+                <img src="/placeholder.svg?height=30&width=30" alt="Author Avatar">
+                <span>John Doe</span>
+              </div>
+              <div class="saved-post-caption">Welcome to my exclusive content! Subscribe for more premium posts and behind-the-scenes content.</div>
+              <div class="saved-post-date">Saved on May 16, 2023</div>
+            </div>
+            <div class="saved-post-actions">
+              <a href="#" class="btn btn-sm btn-outline">View Post</a>
+              <button class="btn btn-sm btn-outline remove-saved">Remove</button>
+            </div>
+          </div>
+          
+          <div class="saved-post-card">
+            <div class="saved-post-media">
+              <img src="/placeholder.svg?height=200&width=200" alt="Saved Post">
+            </div>
+            <div class="saved-post-info">
+              <div class="saved-post-author">
+                <img src="/placeholder.svg?height=30&width=30" alt="Author Avatar">
+                <span>John Doe</span>
+              </div>
+              <div class="saved-post-caption">Check out this amazing view from my vacation! More exclusive content coming soon.</div>
+              <div class="saved-post-date">Saved on May 14, 2023</div>
+            </div>
+            <div class="saved-post-actions">
+              <a href="#" class="btn btn-sm btn-outline">View Post</a>
+              <button class="btn btn-sm btn-outline remove-saved">Remove</button>
+            </div>
+          </div>
+          
+          <div class="saved-post-card">
+            <div class="saved-post-media">
+              <img src="/placeholder.svg?height=200&width=200" alt="Saved Post">
+            </div>
+            <div class="saved-post-info">
+              <div class="saved-post-author">
+                <img src="/placeholder.svg?height=30&width=30" alt="Author Avatar">
+                <span>John Doe</span>
+              </div>
+              <div class="saved-post-caption">Thank you all for the amazing support!</div>
+              <div class="saved-post-date">Saved on May 10, 2023</div>
+            </div>
+            <div class="saved-post-actions">
+              <a href="#" class="btn btn-sm btn-outline">View Post</a>
+              <button class="btn btn-sm btn-outline remove-saved">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="dashboard-tab-content" id="verification-tab">
+        <div class="verification-status">
+          <div class="verification-status-card">
+            <div class="verification-icon">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <div class="verification-details">
+              <h3>Verification Status</h3>
+              <p class="verification-status-text pending">Pending Review</p>
+              <p class="verification-message">Your verification request has been submitted and is currently under review. This process typically takes 1-3 business days.</p>
+              <p class="verification-submitted">Submitted on May 17, 2023</p>
+            </div>
+          </div>
+          
+          <div class="verification-documents">
+            <h3>Submitted Documents</h3>
+            <div class="document-previews">
+              <div class="document-preview">
+                <img src="/placeholder.svg?height=150&width=240" alt="ID Front">
+                <p>ID Front</p>
+              </div>
+              <div class="document-preview">
+                <img src="/placeholder.svg?height=150&width=240" alt="ID Back">
+                <p>ID Back</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="verification-benefits">
+            <h3>Benefits of Verification</h3>
+            <ul class="benefits-list">
+              <li><i class="fas fa-check"></i> Verified badge on your profile</li>
+              <li><i class="fas fa-check"></i> Higher visibility in search results</li>
+              <li><i class="fas fa-check"></i> Access to exclusive features</li>
+              <li><i class="fas fa-check"></i> Increased trust from other users</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Mobile Bottom Navigation -->
+<nav class="mobile-nav">
+  <ul class="user-nav">
+    <li>
+      <a href="index.html">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a href="messages.html">
+        <i class="fas fa-comment"></i>
+        <span>Messages</span>
+      </a>
+    </li>
+    <li>
+      <a href="profile.html">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </li>
+    <li>
+      <a href="settings.html">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="toast" id="toast">
+  <div class="toast-content">
+    <i class="fas fa-check-circle"></i>
+    <div class="toast-message">Success message here</div>
+  </div>
+  <div class="toast-progress"></div>
+</div>
+
+<!-- Scripts -->
+<script src="js/auth.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

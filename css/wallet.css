@@ -1,0 +1,893 @@
+/* Wallet Page Styles */
+.wallet-container,
+.fund-account-container,
+.subscriptions-container {
+  padding: var(--spacing-lg) 0;
+}
+
+.wallet-header,
+.fund-account-header,
+.subscriptions-header {
+  margin-bottom: var(--spacing-lg);
+}
+
+.wallet-balance-card {
+  background-color: var(--color-card);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--spacing-md);
+}
+
+.balance-info h2 {
+  font-size: 1.2rem;
+  margin-bottom: var(--spacing-xs);
+  color: var(--color-text-muted);
+}
+
+.balance-amount {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.wallet-actions {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+/* Wallet Tabs */
+.wallet-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--color-border);
+  margin-bottom: var(--spacing-md);
+}
+
+.wallet-tab {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+  position: relative;
+}
+
+.wallet-tab:hover {
+  color: var(--color-primary);
+}
+
+.wallet-tab.active {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.wallet-tab-content {
+  display: none;
+}
+
+.wallet-tab-content.active {
+  display: block;
+}
+
+/* Transactions List */
+.transactions-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.transaction {
+  background-color: var(--color-card);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.transaction-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-circle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-md);
+  font-size: 1.2rem;
+}
+
+.transaction-icon.deposit {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--color-success);
+}
+
+.transaction-icon.payment,
+.transaction-icon.subscription,
+.transaction-icon.tip,
+.transaction-icon.content {
+  background-color: rgba(94, 53, 177, 0.1);
+  color: var(--color-primary);
+}
+
+.transaction-details {
+  flex: 1;
+}
+
+.transaction-title {
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.transaction-date {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.transaction-amount {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.transaction-amount.deposit {
+  color: var(--color-success);
+}
+
+.transaction-amount.payment {
+  color: var(--color-primary);
+}
+
+/* Pending Transactions */
+.pending-transactions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.pending-transaction {
+  background-color: var(--color-card);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+}
+
+.pending-details {
+  flex: 1;
+}
+
+.pending-title {
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.pending-amount {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.pending-date {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-xs);
+}
+
+.pending-status {
+  font-size: 0.9rem;
+  color: var(--color-warning);
+}
+
+.pending-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+/* Fund Account Steps */
+.fund-steps {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.fund-step {
+  display: none;
+  margin-bottom: var(--spacing-lg);
+}
+
+.fund-step.active {
+  display: block;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-circle);
+  background-color: var(--color-primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  margin-bottom: var(--spacing-md);
+}
+
+.step-content {
+  background-color: var(--color-card);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.step-content h3 {
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+/* Amount Options */
+.amount-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.amount-option {
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.amount-option:hover {
+  background-color: rgba(94, 53, 177, 0.1);
+  border-color: var(--color-primary);
+}
+
+.amount-option.selected {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+.custom-amount {
+  margin-bottom: var(--spacing-md);
+}
+
+.custom-amount-input {
+  display: flex;
+  align-items: center;
+}
+
+.custom-amount-input span {
+  padding: 0.75rem;
+  background-color: var(--color-input-bg);
+  border: 1px solid var(--color-input-border);
+  border-right: none;
+  border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+}
+
+.custom-amount-input input {
+  border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+}
+
+/* Payment Methods */
+.payment-methods {
+  margin-bottom: var(--spacing-md);
+}
+
+.payment-method {
+  margin-bottom: var(--spacing-sm);
+}
+
+.payment-method input[type="radio"] {
+  display: none;
+}
+
+.payment-method label {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.payment-method label:hover {
+  background-color: rgba(94, 53, 177, 0.05);
+}
+
+.payment-method input[type="radio"]:checked + label {
+  border-color: var(--color-primary);
+  background-color: rgba(94, 53, 177, 0.1);
+}
+
+.payment-method label i {
+  font-size: 1.5rem;
+  margin-right: var(--spacing-md);
+  color: var(--color-primary);
+}
+
+.step-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--spacing-md);
+}
+
+/* Payment Details */
+.payment-waiting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg) 0;
+}
+
+.payment-waiting .spinner {
+  margin-bottom: var(--spacing-md);
+}
+
+.payment-details {
+  margin-bottom: var(--spacing-md);
+}
+
+.payment-info {
+  background-color: rgba(0, 0, 0, 0.03);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.dark-mode .payment-info {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.bank-details {
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+}
+
+.payment-note {
+  margin-top: var(--spacing-sm);
+  padding-top: var(--spacing-sm);
+  border-top: 1px solid var(--color-border);
+  font-size: 0.9rem;
+}
+
+.upload-proof h4 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.upload-area {
+  border: 2px dashed var(--color-border);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-lg);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.upload-area:hover {
+  border-color: var(--color-primary);
+  background-color: rgba(94, 53, 177, 0.05);
+}
+
+.upload-area i {
+  font-size: 2rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-sm);
+}
+
+.uploaded-preview {
+  position: relative;
+  margin-top: var(--spacing-sm);
+}
+
+.uploaded-preview img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: var(--border-radius-md);
+}
+
+.remove-upload {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--border-radius-circle);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.remove-upload:hover {
+  background-color: var(--color-danger);
+}
+
+/* Confirmation Step */
+.confirmation-message {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.confirmation-icon {
+  font-size: 3rem;
+  color: var(--color-success);
+  margin-bottom: var(--spacing-md);
+}
+
+.confirmation-message h4 {
+  margin-bottom: var(--spacing-md);
+}
+
+.confirmation-message p {
+  margin-bottom: var(--spacing-sm);
+}
+
+.confirmation-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+/* Subscriptions Styles */
+.active-subscriptions {
+  margin-bottom: var(--spacing-xl);
+}
+
+.subscription-card {
+  background-color: var(--color-card);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.subscription-profile {
+  display: flex;
+  align-items: center;
+}
+
+.profile-avatar {
+  margin-right: var(--spacing-md);
+}
+
+.profile-avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: var(--border-radius-circle);
+  object-fit: cover;
+}
+
+.profile-info h3 {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+}
+
+.profile-username {
+  color: var(--color-text-muted);
+}
+
+.subscription-details {
+  flex: 1;
+  min-width: 200px;
+}
+
+.subscription-plan h4 {
+  margin-bottom: var(--spacing-xs);
+}
+
+.subscription-price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.subscription-status p {
+  margin-bottom: var(--spacing-xs);
+}
+
+.subscription-status span {
+  font-weight: 600;
+}
+
+.subscription-actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  justify-content: center;
+}
+
+.no-subscriptions {
+  background-color: var(--color-card);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  box-shadow: var(--shadow-md);
+  margin-top: var(--spacing-md);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--spacing-lg) 0;
+}
+
+.empty-state i {
+  font-size: 3rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+.empty-state h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.empty-state p {
+  color: var(--color-text-muted);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Subscription Plans */
+.plans-description {
+  margin-bottom: var(--spacing-md);
+}
+
+.plans-container {
+  display: flex;
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.plan-card {
+  flex: 1;
+  background-color: var(--color-card);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  position: relative;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.plan-card.featured {
+  border: 2px solid var(--color-primary);
+  transform: scale(1.05);
+}
+
+.plan-card.featured:hover {
+  transform: scale(1.05) translateY(-5px);
+}
+
+.featured-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--color-primary);
+  color: white;
+  padding: var(--spacing-xs) var(--spacing-md);
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-bottom-left-radius: var(--border-radius-md);
+}
+
+.plan-header {
+  padding: var(--spacing-lg);
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+  position: relative;
+}
+
+.plan-header h3 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.plan-price {
+  margin-bottom: var(--spacing-sm);
+}
+
+.plan-price .price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.plan-price .period {
+  font-size: 1rem;
+  color: var(--color-text-muted);
+}
+
+.plan-discount {
+  display: inline-block;
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--color-success);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.plan-features {
+  padding: var(--spacing-lg);
+}
+
+.plan-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.plan-features li {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.plan-features li i {
+  margin-right: var(--spacing-sm);
+  font-size: 1rem;
+}
+
+.plan-features li i.fa-check {
+  color: var(--color-success);
+}
+
+.plan-features li i.fa-times {
+  color: var(--color-text-muted);
+}
+
+.plan-action {
+  padding: 0 var(--spacing-lg) var(--spacing-lg);
+}
+
+/* Subscription History */
+.subscription-history {
+  margin-top: var(--spacing-xl);
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.history-item {
+  background-color: var(--color-card);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.history-creator {
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+  margin-right: var(--spacing-md);
+}
+
+.history-creator img {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--border-radius-circle);
+  margin-right: var(--spacing-sm);
+}
+
+.creator-info h4 {
+  margin-bottom: var(--spacing-xs);
+  font-size: 1rem;
+}
+
+.creator-info p {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.history-details {
+  flex: 1;
+}
+
+.history-details p {
+  margin-bottom: var(--spacing-xs);
+}
+
+.history-amount {
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.history-status {
+  min-width: 80px;
+  text-align: center;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--border-radius-md);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.history-status.active {
+  background-color: rgba(76, 175, 80, 0.1);
+  color: var(--color-success);
+}
+
+.history-status.expired {
+  background-color: rgba(158, 158, 158, 0.1);
+  color: var(--color-text-muted);
+}
+
+.history-status.cancelled {
+  background-color: rgba(244, 67, 54, 0.1);
+  color: var(--color-danger);
+}
+
+/* Subscription Confirmation Modal */
+.subscription-summary {
+  margin-bottom: var(--spacing-lg);
+}
+
+.summary-creator {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.summary-creator img {
+  width: 60px;
+  height: 60px;
+  border-radius: var(--border-radius-circle);
+  margin-right: var(--spacing-md);
+}
+
+.summary-plan,
+.summary-payment {
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.summary-plan h4,
+.summary-payment h4 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.plan-name {
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+}
+
+.plan-price {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.plan-billing {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.payment-method {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wallet-balance {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.subscription-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Cancel Subscription Modal */
+.cancel-subscription-content {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.cancel-icon {
+  font-size: 3rem;
+  color: var(--color-danger);
+  margin-bottom: var(--spacing-md);
+}
+
+.cancel-details {
+  margin: var(--spacing-md) 0;
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.03);
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius-md);
+}
+
+.dark-mode .cancel-details {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.cancel-details ul {
+  margin-top: var(--spacing-xs);
+  padding-left: var(--spacing-lg);
+}
+
+.cancel-reason {
+  margin-top: var(--spacing-md);
+  text-align: left;
+}
+
+.cancel-reason h4 {
+  margin-bottom: var(--spacing-sm);
+}
+
+.cancel-reason select {
+  margin-bottom: var(--spacing-sm);
+}
+
+.cancel-reason textarea {
+  min-height: 100px;
+}
+
+/* Media Queries */
+@media (max-width: 992px) {
+  .subscription-card {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .plans-container {
+    flex-direction: column;
+  }
+
+  .plan-card.featured {
+    transform: scale(1);
+  }
+
+  .plan-card.featured:hover {
+    transform: translateY(-5px);
+  }
+}
+
+@media (max-width: 768px) {
+  .wallet-container,
+  .fund-account-container,
+  .subscriptions-container {
+    padding: var(--spacing-md) 0 calc(var(--spacing-md) + 60px);
+  }
+  
+  .wallet-balance-card {
+    flex-direction: column;
+  }
+
