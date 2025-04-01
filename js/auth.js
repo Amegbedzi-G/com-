@@ -1,10 +1,8 @@
 // Auth Module
 const Auth = (() => {
-  // Private variables and functions
-  const storageKeyUser = "myfans_user"
-  const storageKeyToken = "myfans_token"
+  const storageKeyUser = "myfans_user";
+  const storageKeyToken = "myfans_token";
 
-  // Mock user data for demo
   const mockUsers = [
     {
       id: 1,
@@ -32,75 +30,52 @@ const Auth = (() => {
       bio: "Fan and supporter of great content.",
       createdAt: "2023-02-15T00:00:00Z",
     },
-  ]
+  ];
 
-  // Check if user is logged in
   function isLoggedIn() {
-    return !!getToken()
+    return !!getToken();
   }
 
-  // Get current user
   function getCurrentUser() {
-    const userJson = localStorage.getItem(storageKeyUser)
-    return userJson ? JSON.parse(userJson) : null
+    const userJson = localStorage.getItem(storageKeyUser);
+    return userJson ? JSON.parse(userJson) : null;
   }
 
-  // Get auth token
   function getToken() {
-    return localStorage.getItem(storageKeyToken)
+    return localStorage.getItem(storageKeyToken);
   }
 
-  // Login user
   function login(email, password) {
     return new Promise((resolve, reject) => {
-      // Simulate API request
       setTimeout(() => {
-        const user = mockUsers.find((u) => u.email === email && u.password === password)
+        const user = mockUsers.find((u) => u.email === email && u.password === password);
 
         if (user) {
-          // Remove password from user object
-          const { password, ...userWithoutPassword } = user
-
-          // Store user in localStorage
-          localStorage.setItem(storageKeyUser, JSON.stringify(userWithoutPassword))
-
-          // Generate a fake token
-          const token = `fake_token_${Date.now()}`
-          localStorage.setItem(storageKeyToken, token)
-
-          // Set body class based on user role
-          if (user.isAdmin) {
-            document.body.classList.add("is-admin")
-          } else {
-            document.body.classList.remove("is-admin")
-          }
-
-          resolve(userWithoutPassword)
+          const { password, ...userWithoutPassword } = user;
+          localStorage.setItem(storageKeyUser, JSON.stringify(userWithoutPassword));
+          const token = `fake_token_${Date.now()}`;
+          localStorage.setItem(storageKeyToken, token);
+          resolve(userWithoutPassword);
         } else {
-          reject(new Error("Invalid email or password"))
+          reject(new Error("Invalid credentials"));
         }
-      }, 1000)
-    })
+      }, 1000);
+    });
   }
 
-  // Register user
   function register(username, email, password) {
     return new Promise((resolve, reject) => {
-      // Simulate API request
       setTimeout(() => {
-        // Check if email already exists
         if (mockUsers.some((u) => u.email === email)) {
-          reject(new Error("Email already in use"))
-          return
+          reject(new Error("Email already in use"));
+          return;
         }
 
-        // Check if username already exists
         if (mockUsers.some((u) => u.username === username)) {
-          reject(new Error("Username already taken"))
-          return
+          reject(new Error("Username already taken"));
+          return;
         }
 
-        // Create new user
         const newUser = {
           id: mockUsers.length + 1,
           username,
@@ -112,256 +87,243 @@ const Auth = (() => {
           balance: 0.0,
           bio: "",
           createdAt: new Date().toISOString(),
-        }
+        };
 
-        // Add to mock users
-        mockUsers.push(newUser)
-
-        // Remove password from user object
-        const { password: _, ...userWithoutPassword } = newUser
-
-        // Store user in localStorage
-        localStorage.setItem(storageKeyUser, JSON.stringify(userWithoutPassword))
-
-        // Generate a fake token
-        const token = `fake_token_${Date.now()}`
-        localStorage.setItem(storageKeyToken, token)
-
-        // Set body class based on user role
-        document.body.classList.remove("is-admin")
-
-        resolve(userWithoutPassword)
-      }, 1000)
-    })
+        mockUsers.push(newUser);
+        const { password: _, ...userWithoutPassword } = newUser;
+        localStorage.setItem(storageKeyUser, JSON.stringify(userWithoutPassword));
+        const token = `fake_token_${Date.now()}`;
+        localStorage.setItem(storageKeyToken, token);
+        resolve(userWithoutPassword);
+      }, 1000);
+    });
   }
 
-  // Logout user
   function logout() {
-    localStorage.removeItem(storageKeyUser)
-    localStorage.removeItem(storageKeyToken)
-    document.body.classList.remove("is-admin")
-
-    // Redirect to login page if not already there
-    if (!window.location.pathname.includes("login.html")) {
-      window.location.href = "login.html"
-    }
+    localStorage.removeItem(storageKeyUser);
+    localStorage.removeItem(storageKeyToken);
   }
 
-  // Update user profile
-  function updateProfile(userData) {
-    return new Promise((resolve, reject) => {
-      // Simulate API request
-      setTimeout(() => {
-        const currentUser = getCurrentUser()
+  return { isLoggedIn, getCurrentUser, getToken, login, register, logout };
+})();
 
-        if (!currentUser) {
-          reject(new Error("User not logged in"))
-          return
+function showToast(message, type = "success") {
+  const toast = document.getElementById("toast");
+  if (!toast) {
+    console.error("Toast element not found!");
+    alert(message); // Fallback if toast element doesn't exist
+    return;
+  }
+  
+  const toastMessage = toast.querySelector(".toast-message");
+  const toastIcon = toast.querySelector(".toast-content i");
+  
+  if (toastMessage) toastMessage.textContent = message;
+
+  const iconClasses = {
+    success: "fas fa-check-circle",
+    error: "fas fa-exclamation-circle",
+    warning: "fas fa-exclamation-triangle",
+    info: "fas fa-info-circle",
+  };
+  
+  if (toastIcon) toastIcon.className = iconClasses[type] || "fas fa-info-circle";
+  toast.classList.add("show");
+
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 3000);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  // Debug: Check if we're on the login page
+  console.log("Document loaded. Looking for login form...");
+  
+  const loginForm = document.getElementById("login-form");
+  const signupForm = document.getElementById("sigynup-form");
+  
+  // Handle tab switching
+  const authTabs = document.querySelectorAll('.auth-tab');
+  const authForms = document.querySelectorAll('.auth-form');
+  
+  authTabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const tabTarget = this.getAttribute('data-tab');
+      
+      // Update active tab
+      authTabs.forEach(t => t.classList.remove('active'));
+      this.classList.add('active');
+      
+      // Show corresponding form
+      authForms.forEach(form => {
+        form.classList.remove('active');
+        if (form.id === `${tabTarget}-form`) {
+          form.classList.add('active');
         }
+      });
+    });
+  });
+  
+  // Handle form switch links
+  const switchLinks = document.querySelectorAll('.switch-form');
+  switchLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const formTarget = this.getAttribute('data-form');
+      
+      // Update active tab
+      authTabs.forEach(t => {
+        t.classList.remove('active');
+        if (t.getAttribute('data-tab') === formTarget) {
+          t.classList.add('active');
+        }
+      });
+      
+      // Show corresponding form
+      authForms.forEach(form => {
+        form.classList.remove('active');
+        if (form.id === `${formTarget}-form`) {
+          form.classList.add('active');
+        }
+      });
+    });
+  });
 
-        // Update user data
-        const updatedUser = { ...currentUser, ...userData }
-
-        // Store updated user in localStorage
-        localStorage.setItem(storageKeyUser, JSON.stringify(updatedUser))
-
-        resolve(updatedUser)
-      }, 1000)
-    })
-  }
-
-  // Initialize auth state
-  function init() {
-    const currentUser = getCurrentUser()
-
-    if (currentUser) {
-      // Set body class based on user role
-      if (currentUser.isAdmin) {
-        document.body.classList.add("is-admin")
-      } else {
-        document.body.classList.remove("is-admin")
-      }
-
-      // If on login page and already logged in, redirect to home
-      if (window.location.pathname.includes("login.html")) {
-        window.location.href = "index.html"
-      }
-    } else {
-      // If not logged in and not on login page, redirect to login
-      if (!window.location.pathname.includes("login.html")) {
-        window.location.href = "login.html"
-      }
-    }
-  }
-
-  // Public API
-  return {
-    isLoggedIn,
-    getCurrentUser,
-    getToken,
-    login,
-    register,
-    logout,
-    updateProfile,
-    init,
-  }
-})()
-
-// Initialize auth on page load
-document.addEventListener("DOMContentLoaded", () => {
-  Auth.init()
-
-  // Setup logout button
-  const logoutBtn = document.getElementById("logout-btn")
-  if (logoutBtn) {
-    logoutBtn.addEventListener("click", (e) => {
-      e.preventDefault()
-      Auth.logout()
-    })
-  }
-
-  // Setup login form
-  const loginForm = document.getElementById("login-form")
   if (loginForm) {
-    loginForm.addEventListener("submit", (e) => {
-      e.preventDefault()
+    console.log("Login form found, adding event listener");
+    
+    loginForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      console.log("Login form submitted");
+      
+      const email = document.getElementById("login-email").value;
+      const password = document.getElementById("login-password").value;
 
-      const email = document.getElementById("login-email").value
-      const password = document.getElementById("login-password").value
+      if (!email || !password) {
+        showToast("Please fill in all fields", "error");
+        return;
+      }
 
-      // Show loading state
-      const submitBtn = loginForm.querySelector('button[type="submit"]')
-      const originalBtnText = submitBtn.innerHTML
-      submitBtn.disabled = true
-      submitBtn.innerHTML = "Logging in..."
+      const submitBtn = loginForm.querySelector("button[type='submit']");
+      let originalText = "";
+      
+      if (submitBtn) {
+        originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "Logging in...";
+      }
 
+      console.log("Attempting login with:", email);
+      
       Auth.login(email, password)
         .then((user) => {
-          showToast("Login successful!", "success")
+          console.log("Login successful, user:", user);
+          showToast("Login successful!", "success");
+          
+          // Add debug to check if this part is executing
+          console.log("Preparing to redirect to index.html...");
+          
           setTimeout(() => {
-            window.location.href = "index.html"
-          }, 1000)
+            console.log("Redirecting now...");
+            window.location.href = "index.html";
+          }, 1500);
         })
         .catch((error) => {
-          showToast(error.message, "error")
-          submitBtn.disabled = false
-          submitBtn.innerHTML = originalBtnText
-        })
-    })
+          console.error("Login error:", error);
+          showToast(error.message, "error");
+          
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText || "Login";
+          }
+        });
+    });
+  } else {
+    console.warn("Login form not found in the document!");
   }
 
-  // Setup signup form
-  const signupForm = document.getElementById("signup-form")
   if (signupForm) {
-    signupForm.addEventListener("submit", (e) => {
-      e.preventDefault()
+    console.log("Signup form found, adding event listener");
+    
+    signupForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      console.log("Signup form submitted");
+      
+      const username = document.getElementById("signup-username").value;
+      const email = document.getElementById("signup-email").value;
+      const password = document.getElementById("signup-password").value;
 
-      const username = document.getElementById("signup-username").value
-      const email = document.getElementById("signup-email").value
-      const password = document.getElementById("signup-password").value
-      const confirmPassword = document.getElementById("signup-confirm-password").value
-
-      // Validate passwords match
-      if (password !== confirmPassword) {
-        showToast("Passwords do not match", "error")
-        return
+      if (!username || !email || !password) {
+        showToast("Please fill in all fields", "error");
+        return;
       }
 
-      // Show loading state
-      const submitBtn = signupForm.querySelector('button[type="submit"]')
-      const originalBtnText = submitBtn.innerHTML
-      submitBtn.disabled = true
-      submitBtn.innerHTML = "Creating account..."
+      const submitBtn = signupForm.querySelector("button[type='submit']");
+      let originalText = "";
+      
+      if (submitBtn) {
+        originalText = submitBtn.innerHTML;
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = "Signing up...";
+      }
 
       Auth.register(username, email, password)
         .then((user) => {
-          showToast("Account created successfully!", "success")
+          console.log("Registration successful, user:", user);
+          showToast("Account created successfully!", "success");
+          
           setTimeout(() => {
-            window.location.href = "index.html"
-          }, 1000)
+            window.location.href = "index.html";
+          }, 1500);
         })
         .catch((error) => {
-          showToast(error.message, "error")
-          submitBtn.disabled = false
-          submitBtn.innerHTML = originalBtnText
-        })
-    })
+          console.error("Registration error:", error);
+          showToast(error.message, "error");
+          
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText || "Sign Up";
+          }
+        });
+    });
   }
 
-  // Auth tabs (login/signup)
-  const authTabs = document.querySelectorAll(".auth-tab")
-  if (authTabs.length) {
-    authTabs.forEach((tab) => {
-      tab.addEventListener("click", function () {
-        // Remove active class from all tabs
-        authTabs.forEach((t) => t.classList.remove("active"))
-
-        // Add active class to clicked tab
-        this.classList.add("active")
-
-        // Hide all forms
-        document.querySelectorAll(".auth-form").forEach((form) => {
-          form.classList.remove("active")
-        })
-
-        // Show selected form
-        const formId = this.getAttribute("data-tab") + "-form"
-        document.getElementById(formId).classList.add("active")
-      })
-    })
+  // Check if already logged in and redirect if needed
+  if (Auth.isLoggedIn()) {
+    // Check if we're on the login page (you may need to adjust this logic)
+    const currentPath = window.location.pathname;
+    if (currentPath.includes('login.html') || currentPath.endsWith('/login')) {
+      window.location.href = "index.html";
+    }
   }
+});
 
-  // Show signup form
-  const showSignup = document.getElementById("show-signup")
-  if (showSignup) {
-    showSignup.addEventListener("click", (e) => {
-      e.preventDefault()
-      document.getElementById("login-modal").classList.remove("active")
-      document.getElementById("signup-modal").classList.add("active")
-    })
+document.addEventListener("DOMContentLoaded", function() {
+  // Get current user information
+  const currentUser = Auth.getCurrentUser();
+  
+  // Show the appropriate navigation based on user role
+  const userNav = document.querySelector('.user-nav');
+  const adminNav = document.querySelector('.admin-nav');
+  
+  if (currentUser && currentUser.isAdmin) {
+    // Show admin navigation
+    if (userNav) userNav.style.display = 'none';
+    if (adminNav) adminNav.style.display = 'flex';
+  } else {
+    // Show regular user navigation
+    if (userNav) userNav.style.display = 'flex';
+    if (adminNav) adminNav.style.display = 'none';
   }
-
-  // Show login form
-  const showLogin = document.getElementById("show-login")
-  if (showLogin) {
-    showLogin.addEventListener("click", (e) => {
-      e.preventDefault()
-      document.getElementById("signup-modal").classList.remove("active")
-      document.getElementById("login-modal").classList.add("active")
-    })
-  }
-})
-
-// Toast notification function
-function showToast(message, type = "success") {
-  const toast = document.getElementById("toast")
-  const toastMessage = toast.querySelector(".toast-message")
-  const toastIcon = toast.querySelector(".toast-content i")
-
-  // Set message
-  toastMessage.textContent = message
-
-  // Set icon based on type
-  if (type === "success") {
-    toastIcon.className = "fas fa-check-circle"
-    toastIcon.style.color = "var(--color-success)"
-  } else if (type === "error") {
-    toastIcon.className = "fas fa-exclamation-circle"
-    toastIcon.style.color = "var(--color-danger)"
-  } else if (type === "warning") {
-    toastIcon.className = "fas fa-exclamation-triangle"
-    toastIcon.style.color = "var(--color-warning)"
-  } else if (type === "info") {
-    toastIcon.className = "fas fa-info-circle"
-    toastIcon.style.color = "var(--color-info)"
-  }
-
-  // Show toast
-  toast.classList.add("show")
-
-  // Hide toast after 3 seconds
-  setTimeout(() => {
-    toast.classList.remove("show")
-  }, 3000)
-}
-
+  
+  // Highlight the active navigation item based on current page
+  const currentPath = window.location.pathname;
+  const navLinks = document.querySelectorAll('.mobile-nav a');
+  
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (currentPath.includes(link.getAttribute('href'))) {
+      link.classList.add('active');
+    }
+  });
+});

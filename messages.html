@@ -51,17 +51,17 @@
     <div class="messages-container">
       <div class="conversations-sidebar">
         <div class="conversations-header">
-          <h2>Messages</h2>
+          <h2>Creators</h2>
           <div class="conversations-search">
-            <input type="text" placeholder="Search messages...">
+            <input type="text" placeholder="Search creators...">
             <i class="fas fa-search"></i>
           </div>
         </div>
         <div class="conversations-list" id="conversations-list">
-          <!-- Conversations will be loaded here via JavaScript -->
+          <!-- Only showing admin conversations -->
           <div class="conversation active" data-conversation-id="1">
             <div class="conversation-avatar">
-              <img src="/placeholder.svg?height=50&width=50" alt="User Avatar">
+              <img src="/placeholder.svg?height=50&width=50" alt="Admin Avatar">
               <span class="online-indicator"></span>
             </div>
             <div class="conversation-info">
@@ -75,32 +75,36 @@
               <div class="conversation-unread">3</div>
             </div>
           </div>
-          <div class="conversation" data-conversation-id="2">
-            <div class="conversation-avatar">
-              <img src="/placeholder.svg?height=50&width=50" alt="User Avatar">
-            </div>
-            <div class="conversation-info">
-              <div class="conversation-name">
-                Jane Smith <span class="verified-badge user"><i class="fas fa-check-circle"></i></span>
-              </div>
-              <div class="conversation-last-message">I have a question about...</div>
-            </div>
-            <div class="conversation-meta">
-              <div class="conversation-time">1h</div>
-            </div>
-          </div>
+          
+          <!-- Another admin conversation -->
           <div class="conversation" data-conversation-id="3">
             <div class="conversation-avatar">
-              <img src="/placeholder.svg?height=50&width=50" alt="User Avatar">
+              <img src="/placeholder.svg?height=50&width=50" alt="Admin Avatar">
             </div>
             <div class="conversation-info">
               <div class="conversation-name">
-                Mike Johnson
+                Mike Johnson <span class="verified-badge admin"><i class="fas fa-check-circle"></i></span>
               </div>
               <div class="conversation-last-message">Check out my new post!</div>
             </div>
             <div class="conversation-meta">
               <div class="conversation-time">1d</div>
+            </div>
+          </div>
+          
+          <!-- Another admin conversation -->
+          <div class="conversation" data-conversation-id="4">
+            <div class="conversation-avatar">
+              <img src="/placeholder.svg?height=50&width=50" alt="Admin Avatar">
+            </div>
+            <div class="conversation-info">
+              <div class="conversation-name">
+                Sarah Williams <span class="verified-badge admin"><i class="fas fa-check-circle"></i></span>
+              </div>
+              <div class="conversation-last-message">New content coming soon!</div>
+            </div>
+            <div class="conversation-meta">
+              <div class="conversation-time">2d</div>
             </div>
           </div>
         </div>
@@ -110,7 +114,7 @@
         <div class="chat-header">
           <div class="chat-user-info">
             <div class="chat-avatar">
-              <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="Admin Avatar">
               <span class="online-indicator"></span>
             </div>
             <div class="chat-user-details">
@@ -148,7 +152,7 @@
           
           <div class="message received">
             <div class="message-avatar">
-              <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="Admin Avatar">
             </div>
             <div class="message-content">
               <div class="message-sender">John Doe</div>
@@ -169,7 +173,7 @@
           
           <div class="message received">
             <div class="message-avatar">
-              <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="Admin Avatar">
             </div>
             <div class="message-content">
               <div class="message-sender">John Doe</div>
@@ -180,7 +184,7 @@
           
           <div class="message received ppv-message">
             <div class="message-avatar">
-              <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="Admin Avatar">
             </div>
             <div class="message-content">
               <div class="message-sender">John Doe</div>
@@ -204,7 +208,7 @@
           
           <div class="message received">
             <div class="message-avatar">
-              <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="Admin Avatar">
             </div>
             <div class="message-content">
               <div class="message-sender">John Doe</div>
@@ -359,4 +363,3 @@
   <script src="js/messages.js"></script>
 </body>
 </html>
-

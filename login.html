@@ -8,81 +8,87 @@
   <link rel="stylesheet" href="css/auth.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="light-mode auth-page">
+<body>
   <div class="auth-container">
     <div class="auth-card">
-      <div class="auth-header">
-        <h1>MyFans</h1>
-        <p>Sign in to continue</p>
-      </div>
-      
       <div class="auth-tabs">
         <button class="auth-tab active" data-tab="login">Login</button>
-        <button class="auth-tab" data-tab="signup">Sign Up</button>
+        <button class="auth-tab" data-tab="signup">Create account</button>
       </div>
       
       <div class="auth-form-container">
+        <!-- Login Form -->
         <form id="login-form" class="auth-form active">
-          <div class="form-group">
-            <label for="login-email">Email</label>
-            <input type="email" id="login-email" required>
+          <div class="auth-header">
+            <h1>L O G I N</h1>
+            <p>Don't have an account? <a href="#" class="switch-form" data-form="signup">sign up</a></p>
           </div>
-          <div class="form-group">
-            <label for="login-password">Password</label>
-            <input type="password" id="login-password" required>
+          
+          <div class="form-group email-input">
+            <div class="email-prefix"><i class="fas fa-envelope"></i></div>
+            <input type="email" id="login-email" placeholder="email address" required>
           </div>
-          <div class="form-group remember-me">
-            <input type="checkbox" id="remember-me">
-            <label for="remember-me">Remember me</label>
-            <a href="#" class="forgot-password">Forgot password?</a>
+          
+          <div class="form-group password-input">
+            <input type="password" id="login-password" placeholder="Password" required>
+            <a href="#" class="forgot-password">FORGOT</a>
           </div>
-          <button type="submit" class="btn btn-primary btn-block">Login</button>
+          
+          <button type="submit" class="btn btn-primary">
+            Login
+            <i class="fas fa-arrow-right"></i>
+          </button>
+          
+          <div class="auth-social">
+            <div class="auth-social-label">
+              <span>Or continue with</span>
+            </div>
+            <div class="auth-social-buttons">
+              <button type="button" class="auth-social-btn google">
+                <i class="fab fa-google"></i>
+              </button>
+            </div>
+          </div>
         </form>
         
+        <!-- Signup Form -->
         <form id="signup-form" class="auth-form">
+          <div class="auth-header">
+            <div class="back-button"></div>
+            <h1>S I G N - U P </h1>
+            <p>Already have an account? <a href="#" class="switch-form" data-form="login">sign in</a></p>
+          </div>
+          
           <div class="form-group">
-            <label for="signup-username">Username</label>
-            <input type="text" id="signup-username" required>
+            <input type="text" id="signup-username" placeholder="Username" required>
           </div>
+          
           <div class="form-group">
-            <label for="signup-email">Email</label>
-            <input type="email" id="signup-email" required>
+            <input type="email" id="signup-email" placeholder="Email" required>
           </div>
+          
           <div class="form-group">
-            <label for="signup-password">Password</label>
-            <input type="password" id="signup-password" required>
+            <input type="password" id="signup-password" placeholder="Password" required>
           </div>
-          <div class="form-group">
-            <label for="signup-confirm-password">Confirm Password</label>
-            <input type="password" id="signup-confirm-password" required>
-          </div>
-          <div class="form-group terms">
-            <input type="checkbox" id="terms" required>
-            <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+          
+          <button type="submit" class="btn btn-primary">
+            Sign up
+            <i class="fas fa-arrow-right"></i>
+          </button>
         </form>
-      </div>
-      
-      <div class="auth-footer">
-        <button id="theme-toggle-btn" class="theme-toggle-btn">
-          <i class="fas fa-moon"></i>
-        </button>
       </div>
     </div>
   </div>
 
-  <div class="toast" id="toast">
+  <!-- Toast Notification -->
+  <div id="toast" class="toast">
     <div class="toast-content">
-      <i class="fas fa-check-circle"></i>
-      <div class="toast-message">Success message here</div>
+      <i class="fas fa-info-circle"></i>
+      <span class="toast-message">Notification message</span>
     </div>
-    <div class="toast-progress"></div>
   </div>
 
   <!-- Scripts -->
-  <script src="js/auth.js"></script>
-  <script src="js/theme.js"></script>
+  <script type="module" src="js/auth.js"></script>
 </body>
 </html>
-
