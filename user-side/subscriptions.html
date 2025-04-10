@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyFans | Subscriptions</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/wallet.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+<!-- Header Navigation (Desktop) -->
+<header class="desktop-header">
+  <div class="container">
+    <div class="logo">
+      <h1>MyFans</h1>
+    </div>
+    <nav class="desktop-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="profile.html">Profile</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="wallet.html">Wallet</a></li>
+        <li><a href="subscriptions.html" class="active">Subscriptions</a></li>
+        <li class="admin-only"><a href="admin-dashboard.html">Dashboard</a></li>
+        <li class="theme-toggle">
+          <button id="theme-toggle-btn">
+            <i class="fas fa-moon"></i>
+          </button>
+        </li>
+        <li class="user-menu">
+          <div class="user-avatar">
+            <img src="images/image1.png" alt="User Avatar" style="object-fit: fill;">
+          </div>
+          <div class="dropdown-menu">
+            <a href="profile.html">Profile</a>
+            <a href="settings.html">Settings</a>
+            <a href="#" id="logout-btn">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="container">
+  <div class="subscriptions-container">
+    <div class="subscriptions-header">
+      <h1>My Subscriptions</h1>
+    </div>
+    
+    <div class="active-subscriptions">
+      <h2>Active Subscriptions</h2>
+      
+      <div class="subscription-card">
+        <div class="subscription-profile">
+          <div class="profile-avatar">
+            <img src="images/image1.png" alt="User Avatar" style="object-fit: fill;">
+          </div>
+          <div class="profile-info">
+            <h3>John Doe <span class="verified-badge admin"><i class="fas fa-check-circle"></i></span></h3>
+            <p class="profile-username">@johndoe</p>
+          </div>
+        </div>
+        
+        <div class="subscription-details">
+          <div class="subscription-plan">
+            <h4>Monthly Plan</h4>
+            <p class="subscription-price">$14.99/month</p>
+          </div>
+          <div class="subscription-status">
+            <p>Next billing date: <span>June 15, 2023</span></p>
+            <p>Subscribed since: <span>May 15, 2023</span></p>
+          </div>
+        </div>
+        
+        <div class="subscription-actions">
+          <a href="profile.html" class="btn btn-outline">View Profile</a>
+          <a href="messages.html" class="btn btn-outline">Message</a>
+          <button class="btn btn-danger" id="cancel-subscription-btn">Cancel</button>
+        </div>
+      </div>
+      
+      <div class="no-subscriptions" style="display: none;">
+        <div class="empty-state">
+          <i class="fas fa-star"></i>
+          <h3>No Active Subscriptions</h3>
+          <p>You don't have any active subscriptions at the moment.</p>
+          <a href="index.html" class="btn btn-primary">Explore Creators</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subscription-plans">
+      <h2>Available Subscription Plans</h2>
+      <p class="plans-description">Subscribe to John Doe to unlock exclusive content and features.</p>
+      
+      <div class="plans-container">
+        <div class="plan-card">
+          <div class="plan-header">
+            <h3>Weekly</h3>
+            <div class="plan-price">
+              <span class="price">$4.99</span>
+              <span class="period">/week</span>
+            </div>
+          </div>
+          <div class="plan-features">
+            <ul>
+              <li><i class="fas fa-check"></i> Access to all posts</li>
+              <li><i class="fas fa-check"></i> Direct messaging</li>
+              <li><i class="fas fa-times"></i> Exclusive monthly content</li>
+              <li><i class="fas fa-times"></i> Priority responses</li>
+              <li><i class="fas fa-times"></i> Custom requests</li>
+            </ul>
+          </div>
+          <div class="plan-action">
+            <button class="btn btn-primary btn-block subscribe-btn" data-plan="weekly">Subscribe</button>
+          </div>
+        </div>
+        
+        <div class="plan-card">
+          <div class="plan-header">
+            <h3>Monthly</h3>
+            <div class="plan-price">
+              <span class="price">$14.99</span>
+              <span class="period">/month</span>
+            </div>
+            <div class="plan-discount">Save 25%</div>
+          </div>
+          <div class="plan-features">
+            <ul>
+              <li><i class="fas fa-check"></i> Access to all posts</li>
+              <li><i class="fas fa-check"></i> Direct messaging</li>
+              <li><i class="fas fa-check"></i> Exclusive monthly content</li>
+              <li><i class="fas fa-times"></i> Priority responses</li>
+              <li><i class="fas fa-times"></i> Custom requests</li>
+            </ul>
+          </div>
+          <div class="plan-action">
+            <button class="btn btn-primary btn-block subscribe-btn" data-plan="monthly">Subscribe</button>
+          </div>
+        </div>
+        
+        <div class="plan-card featured">
+          <div class="plan-header">
+            <div class="featured-label">Best Value</div>
+            <h3>Yearly</h3>
+            <div class="plan-price">
+              <span class="price">$149.99</span>
+              <span class="period">/year</span>
+            </div>
+            <div class="plan-discount">Save 50%</div>
+          </div>
+          <div class="plan-features">
+            <ul>
+              <li><i class="fas fa-check"></i> Access to all posts</li>
+              <li><i class="fas fa-check"></i> Direct messaging</li>
+              <li><i class="fas fa-check"></i> Exclusive monthly content</li>
+              <li><i class="fas fa-check"></i> Priority responses</li>
+              <li><i class="fas fa-check"></i> Custom requests</li>
+            </ul>
+          </div>
+          <div class="plan-action">
+            <button class="btn btn-primary btn-block subscribe-btn" data-plan="yearly">Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="subscription-history">
+      <h2>Subscription History</h2>
+      
+      <div class="history-list">
+        <div class="history-item">
+          <div class="history-creator">
+            <img src="images/image1.png" alt="User Avatar" style="object-fit: fill;">
+            <div class="creator-info">
+              <h4>John Doe</h4>
+              <p>Monthly Plan</p>
+            </div>
+          </div>
+          <div class="history-details">
+            <p>Subscription active from May 15, 2023 to Present</p>
+            <p class="history-amount">$14.99/month</p>
+          </div>
+          <div class="history-status active">
+            Active
+          </div>
+        </div>
+        
+        <div class="history-item">
+          <div class="history-creator">
+            <img src="images/image1.png" alt="User Avatar" style="object-fit: fill;">
+            <div class="creator-info">
+              <h4>Jane Smith</h4>
+              <p>Weekly Plan</p>
+            </div>
+          </div>
+          <div class="history-details">
+            <p>Subscription active from April 10, 2023 to May 1, 2023</p>
+            <p class="history-amount">$4.99/week</p>
+          </div>
+          <div class="history-status expired">
+            Expired
+          </div>
+        </div>
+        
+        <div class="history-item">
+          <div class="history-creator">
+            <img src="images/image1.png" alt="User Avatar" style="object-fit: fill;">
+            <div class="creator-info">
+              <h4>Mike Johnson</h4>
+              <p>Monthly Plan</p>
+            </div>
+          </div>
+          <div class="history-details">
+            <p>Subscription active from March 5, 2023 to April 5, 2023</p>
+            <p class="history-amount">$14.99/month</p>
+          </div>
+          <div class="history-status cancelled">
+            Cancelled
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- Mobile Bottom Navigation -->
+<nav class="mobile-nav">
+  <ul class="user-nav">
+    <li>
+      <a href="index.html">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a href="messages.html">
+        <i class="fas fa-comment"></i>
+        <span>Messages</span>
+      </a>
+    </li>
+    <li>
+      <a href="profile.html">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </li>
+    <li>
+      <a href="settings.html">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Modals -->
+<div class="modal" id="subscription-confirm-modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>Confirm Subscription</h2>
+    <div class="subscription-summary">
+      <div class="summary-creator">
+        <img src="/placeholder.svg?height=60&width=60" alt="Creator Avatar">
+        <div class="creator-info">
+          <h3>John Doe</h3>
+          <p>@johndoe</p>
+        </div>
+      </div>
+      <div class="summary-plan">
+        <h4>Plan Details</h4>
+        <p class="plan-name">Monthly Plan</p>
+        <p class="plan-price">$14.99/month</p>
+        <p class="plan-billing">You will be billed today and on the same day each month.</p>
+      </div>
+      <div class="summary-payment">
+        <h4>Payment Method</h4>
+        <div class="payment-method">
+          <p>Wallet Balance</p>
+          <p class="wallet-balance">Current Balance: <span id="current-balance">$100.00</span></p>
+        </div>
+      </div>
+    </div>
+    <div class="subscription-actions">
+      <button class="btn btn-outline" id="cancel-subscription-confirm">Cancel</button>
+      <button class="btn btn-primary" id="confirm-subscription">Confirm Subscription</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="cancel-subscription-modal">
+  <div class="modal-content">
+    <span class="close-modal">&times;</span>
+    <h2>Cancel Subscription</h2>
+    <div class="cancel-subscription-content">
+      <div class="cancel-icon">
+        <i class="fas fa-exclamation-circle"></i>
+      </div>
+      <p>Are you sure you want to cancel your subscription to <strong>John Doe</strong>?</p>
+      <div class="cancel-details">
+        <p>Your subscription will remain active until the end of the current billing period (June 15, 2023).</p>
+        <p>After cancellation, you will lose access to:</p>
+        <ul>
+          <li>All premium content</li>
+          <li>Direct messaging with the creator</li>
+          <li>Exclusive monthly content</li>
+        </ul>
+      </div>
+      <div class="cancel-reason">
+        <h4>Please tell us why you're cancelling (optional)</h4>
+        <select id="cancel-reason-select">
+          <option value="">Select a reason</option>
+          <option value="too-expensive">Too expensive</option>
+          <option value="not-enough-content">Not enough content</option>
+          <option value="content-quality">Content quality not as expected</option>
+          <option value="found-alternative">Found an alternative</option>
+          <option value="temporary">Temporary - I'll be back later</option>
+          <option value="other">Other reason</option>
+        </select>
+        <textarea id="cancel-reason-other" placeholder="Please specify your reason..." style="display: none;"></textarea>
+      </div>
+    </div>
+    <div class="subscription-actions">
+      <button class="btn btn-outline" id="keep-subscription">Keep Subscription</button>
+      <button class="btn btn-danger" id="confirm-cancel-subscription">Cancel Subscription</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast">
+  <div class="toast-content">
+    <i class="fas fa-check-circle"></i>
+    <div class="toast-message">Success message here</div>
+  </div>
+  <div class="toast-progress"></div>
+</div>
+
+<!-- Scripts -->
+<script src="js/auth.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/subscriptions.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyFans | Admin Chat</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/chat.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+  <!-- Header Navigation (Desktop) -->
+  <header class="desktop-header">
+    <div class="container">
+      <div class="logo">
+        <h1>MyFans</h1>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="admin-dashboard.html">Dashboard</a></li>
+          <li><a href="admin-chat.html" class="active">Messages</a></li>
+          <li><a href="analytics.html">Analytics</a></li>
+          <li><a href="settings.html">Settings</a></li>
+          <li class="theme-toggle">
+            <button id="theme-toggle-btn">
+              <i class="fas fa-moon"></i>
+            </button>
+          </li>
+          <li class="user-menu">
+            <div class="user-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="Admin Avatar">
+              <span class="admin-badge"><i class="fas fa-shield-alt"></i></span>
+            </div>
+            <div class="dropdown-menu">
+              <a href="profile.html">Profile</a>
+              <a href="settings.html">Settings</a>
+              <a href="#" id="logout-btn">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="chat-container">
+      <div class="conversations-sidebar">
+        <div class="conversations-header">
+          <h2>Creator Messages</h2>
+          <div class="conversations-search">
+            <input type="text" placeholder="Search creators...">
+            <i class="fas fa-search"></i>
+          </div>
+        </div>
+        
+        <div class="conversations-list">
+          <div class="conversation active" data-conversation-id="1">
+            <div class="conversation-avatar">
+              <img src="/placeholder.svg?height=50&width=50" alt="Creator Avatar">
+              <span class="online-indicator"></span>
+            </div>
+            <div class="conversation-info">
+              <div class="conversation-name">John Smith</div>
+              <div class="conversation-last-message">I have a question about my account</div>
+            </div>
+            <div class="conversation-meta">
+              <div class="conversation-time">2m</div>
+              <div class="conversation-unread">1</div>
+            </div>
+          </div>
+          
+          <div class="conversation" data-conversation-id="2">
+            <div class="conversation-avatar">
+              <img src="/placeholder.svg?height=50&width=50" alt="Creator Avatar">
+            </div>
+            <div class="conversation-info">
+              <div class="conversation-name">Emily Johnson</div>
+              <div class="conversation-last-message">Thanks for the help!</div>
+            </div>
+            <div class="conversation-meta">
+              <div class="conversation-time">1h</div>
+            </div>
+          </div>
+          
+          <div class="conversation" data-conversation-id="3">
+            <div class="conversation-avatar">
+              <img src="/placeholder.svg?height=50&width=50" alt="Creator Avatar">
+            </div>
+            <div class="conversation-info">
+              <div class="conversation-name">Michael Brown</div>
+              <div class="conversation-last-message">When will my account be verified?</div>
+            </div>
+            <div class="conversation-meta">
+              <div class="conversation-time">3h</div>
+            </div>
+          </div>
+          
+          <div class="conversation" data-conversation-id="4">
+            <div class="conversation-avatar">
+              <img src="/placeholder.svg?height=50&width=50" alt="Creator Avatar">
+            </div>
+            <div class="conversation-info">
+              <div class="conversation-name">Jessica Williams</div>
+              <div class="conversation-last-message">I need help with my payment</div>
+            </div>
+            <div class="conversation-meta">
+              <div class="conversation-time">1d</div>
+            </div>
+          </div>
+          
+          <div class="conversation" data-conversation-id="5">
+            <div class="conversation-avatar">
+              <img src="/placeholder.svg?height=50&width=50" alt="Creator Avatar">
+            </div>
+            <div class="conversation-info">
+              <div class="conversation-name">David Miller</div>
+              <div class="conversation-last-message">How do I set up my profile?</div>
+            </div>
+            <div class="conversation-meta">
+              <div class="conversation-time">2d</div>
+            </div>
+          </div>
+          
+          <div class="conversation" data-conversation-id="6">
+            <div class="conversation-avatar">
+              <img src="/placeholder.svg?height=50&width=50" alt="Creator Avatar">
+            </div>
+            <div class="conversation-info">
+              <div class="conversation-name">Sarah Thompson</div>
+              <div class="conversation-last-message">I just signed up!</div>
+            </div>
+            <div class="conversation-meta">
+              <div class="conversation-time">3d</div>
+            </div>
+          </div>
+          
+          <div class="conversation" data-conversation-id="7">
+            <div class="conversation-avatar">
+              <img src="/placeholder.svg?height=50&width=50" alt="Creator Avatar">
+            </div>
+            <div class="conversation-info">
+              <div class="conversation-name">Robert Wilson</div>
+              <div class="conversation-last-message">Can you review my content?</div>
+            </div>
+            <div class="conversation-meta">
+              <div class="conversation-time">5d</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="chat-main">
+        <div class="chat-header">
+          <div class="chat-user-info">
+            <div class="chat-avatar">
+              <img src="/placeholder.svg?height=50&width=50" alt="Creator Avatar">
+              <span class="online-indicator"></span>
+            </div>
+            <div class="chat-user-details">
+              <div class="chat-username">John Smith</div>
+              <div class="creator-info">
+                <span class="creator-status">Creator</span>
+                <span class="creator-since">Joined: Jan 2023</span>
+              </div>
+            </div>
+          </div>
+          <div class="chat-actions">
+            <button class="btn btn-icon" title="Creator Profile">
+              <i class="fas fa-user"></i>
+            </button>
+            <button class="btn btn-icon" title="Call">
+              <i class="fas fa-phone"></i>
+            </button>
+            <button class="btn btn-icon" title="Video Call">
+              <i class="fas fa-video"></i>
+            </button>
+            <button class="btn btn-icon" title="More">
+              <i class="fas fa-ellipsis-v"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="chat-messages" id="admin-messages">
+          <div class="message-date">
+            <span>Today</span>
+          </div>
+          
+          <div class="message received">
+            <div class="message-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="Creator Avatar">
+            </div>
+            <div class="message-content">
+              <div class="message-text">Hello! I have a question about my account. I'm trying to set up my payment method but I'm getting an error.</div>
+              <div class="message-time">10:30 AM</div>
+            </div>
+          </div>
+          
+          <div class="message sent">
+            <div class="message-content">
+              <div class="message-text">Hi John, I'd be happy to help with that. What error message are you seeing?</div>
+              <div class="message-time">10:32 AM</div>
+              <div class="message-status">
+                <i class="fas fa-check-double"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="message received">
+            <div class="message-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="Creator Avatar">
+            </div>
+            <div class="message-content">
+              <div class="message-text">It says "Payment method not supported in your region." But I'm using a valid credit card.</div>
+              <div class="message-time">10:35 AM</div>
+            </div>
+          </div>
+          
+          <div class="message received">
+            <div class="message-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="Creator Avatar">
+            </div>
+            <div class="message-content">
+              <div class="message-text">Here's a screenshot of the error:</div>
+              <div class="message-media">
+                <img src="/placeholder.svg?height=200&width=300" alt="Error Screenshot">
+              </div>
+              <div class="message-time">10:36 AM</div>
+            </div>
+          </div>
+          
+          <div class="message sent">
+            <div class="message-content">
+              <div class="message-text">Thanks for the screenshot. This sometimes happens due to regional restrictions. Let me check your account details and see what we can do to resolve this.</div>
+              <div class="message-time">10:40 AM</div>
+              <div class="message-status">
+                <i class="fas fa-check-double"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="message received">
+            <div class="message-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="Creator Avatar">
+            </div>
+            <div class="message-content">
+              <div class="message-text">I have a question about my account</div>
+              <div class="message-time">10:45 AM</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="typing-indicator" id="creator-typing">
+          <div class="typing-avatar">
+            <img src="/placeholder.svg?height=40&width=40" alt="Creator Avatar">
+          </div>
+          <div class="typing-bubbles">
+            <div class="typing-bubble"></div>
+            <div class="typing-bubble"></div>
+            <div class="typing-bubble"></div>
+          </div>
+        </div>
+        
+        <div class="chat-input-container">
+          <div class="admin-quick-responses">
+            <button class="quick-response-btn">👋 Welcome to MyFans!</button>
+            <button class="quick-response-btn">🔍 I'll look into that for you</button>
+            <button class="quick-response-btn">✅ Your account is now verified</button>
+            <button class="quick-response-btn">📝 Please provide more details</button>
+          </div>
+          
+          <div class="chat-input-actions">
+            <button class="btn btn-icon" id="attach-file-btn" title="Attach File">
+              <i class="fas fa-paperclip"></i>
+            </button>
+            <button class="btn btn-icon" id="emoji-btn" title="Emoji">
+              <i class="fas fa-smile"></i>
+            </button>
+          </div>
+          <div class="chat-input">
+            <textarea id="admin-message-input" placeholder="Type a message..." rows="1"></textarea>
+          </div>
+          <div class="chat-input-send">
+            <button class="btn btn-icon" id="admin-send-btn" title="Send">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="creator-details">
+        <div class="creator-profile">
+          <div class="creator-avatar">
+            <img src="/placeholder.svg?height=100&width=100" alt="Creator Avatar">
+          </div>
+          <h3 class="creator-name">John Smith</h3>
+          <p class="creator-username">@johnsmith</p>
+          <div class="creator-actions">
+            <button class="btn btn-primary btn-sm">
+              <i class="fas fa-user-check"></i> Verify
+            </button>
+            <button class="btn btn-outline btn-sm">
+              <i class="fas fa-user"></i> Profile
+            </button>
+          </div>
+        </div>
+        
+        <div class="creator-info-section">
+          <h4>Account Details</h4>
+          <div class="info-item">
+            <span class="info-label">Status:</span>
+            <span class="info-value pending">Pending Verification</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Joined:</span>
+            <span class="info-value">January 10, 2023</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Email:</span>
+            <span class="info-value">john.smith@example.com</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Phone:</span>
+            <span class="info-value">+1 (555) 123-4567</span>
+          </div>
+        </div>
+        
+        <div class="creator-info-section">
+          <h4>Content Stats</h4>
+          <div class="info-item">
+            <span class="info-label">Posts:</span>
+            <span class="info-value">12</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Subscribers:</span>
+            <span class="info-value">45</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Revenue:</span>
+            <span class="info-value">$350.75</span>
+          </div>
+          <div class="info-item">
+            <span class="info-label">Content Rating:</span>
+            <span class="info-value">4.8/5</span>
+          </div>
+        </div>
+        
+        <div class="creator-info-section">
+          <h4>Recent Activity</h4>
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="fas fa-upload"></i>
+            </div>
+            <div class="activity-details">
+              <div class="activity-title">Posted new content</div>
+              <div class="activity-time">2 hours ago</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="fas fa-credit-card"></i>
+            </div>
+            <div class="activity-details">
+              <div class="activity-title">Updated payment info</div>
+              <div class="activity-time">Yesterday</div>
+            </div>
+          </div>
+          <div class="activity-item">
+            <div class="activity-icon">
+              <i class="fas fa-user-edit"></i>
+            </div>
+            <div class="activity-details">
+              <div class="activity-title">Updated profile</div>
+              <div class="activity-time">3 days ago</div>
+            </div>
+          </div>
+          <a href="#" class="view-all-link">View all activity</a>
+        </div>
+        
+        <div class="creator-info-section">
+          <h4>Notes</h4>
+          <div class="admin-notes">
+            <textarea id="admin-notes" placeholder="Add notes about this creator..."></textarea>
+            <button class="btn btn-primary btn-sm" id="save-notes-btn">Save Notes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-nav">
+    <ul class="admin-nav">
+      <li>
+        <a href="index.html">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="dashboard.html">
+          <i class="fas fa-tachometer-alt"></i>
+          <span>Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="admin-chat.html" class="active">
+          <i class="fas fa-comment"></i>
+          <span>Messages</span>
+        </a>
+      </li>
+      <li>
+        <a href="settings.html">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Modals -->
+  <div class="modal" id="attachment-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Send Attachment</h2>
+      <div class="attachment-options">
+        <button class="attachment-option" data-type="image">
+          <i class="fas fa-image"></i>
+          <span>Image</span>
+        </button>
+        <button class="attachment-option" data-type="video">
+          <i class="fas fa-video"></i>
+          <span>Video</span>
+        </button>
+        <button class="attachment-option" data-type="audio">
+          <i class="fas fa-music"></i>
+          <span>Audio</span>
+        </button>
+        <button class="attachment-option" data-type="file">
+          <i class="fas fa-file"></i>
+          <span>File</span>
+        </button>
+      </div>
+      <div class="attachment-preview">
+        <div class="attachment-placeholder">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>Drag & drop files here or click on the buttons above</p>
+        </div>
+      </div>
+      <div class="attachment-actions">
+        <button class="btn btn-outline" id="cancel-attachment">Cancel</button>
+        <button class="btn btn-primary" id="send-attachment">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">
+    <div class="toast-content">
+      <i class="fas fa-check-circle"></i>
+      <div class="toast-message">Success message here</div>
+    </div>
+    <div class="toast-progress"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/components/"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/admin-chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyFans | Create Post</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/create-post.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+  <!-- Header Navigation (Desktop) -->
+  <header class="desktop-header">
+    <div class="container">
+      <div class="logo">
+        <h1>MyFans</h1>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li><a href="wallet.html">Wallet</a></li>
+          <li><a href="subscriptions.html">Subscriptions</a></li>
+          <li class="admin-only"><a href="admin-dashboard.html">Dashboard</a></li>
+          <li class="theme-toggle">
+            <button id="theme-toggle-btn">
+              <i class="fas fa-moon"></i>
+            </button>
+          </li>
+          <li class="user-menu">
+            <div class="user-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+            </div>
+            <div class="dropdown-menu">
+              <a href="profile.html">Profile</a>
+              <a href="settings.html">Settings</a>
+              <a href="#" id="logout-btn">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="create-post-container">
+      <div class="create-post-header">
+        <h1>Create New Post</h1>
+        <p>Share content with your fans</p>
+      </div>
+      
+      <div class="create-post-content">
+        <form id="create-post-form">
+          <div class="form-section">
+            <h2>Post Content</h2>
+            
+            <div class="form-group">
+              <label for="post-title">Title (optional)</label>
+              <input type="text" id="post-title" placeholder="Add a title to your post">
+            </div>
+            
+            <div class="form-group">
+              <label for="post-content">Content</label>
+              <textarea id="post-content" placeholder="What's on your mind?"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label>Media</label>
+              <div class="media-upload-container">
+                <div class="media-upload-options">
+                  <button type="button" class="media-upload-btn" data-type="image">
+                    <i class="fas fa-image"></i>
+                    <span>Image</span>
+                  </button>
+                  <button type="button" class="media-upload-btn" data-type="video">
+                    <i class="fas fa-video"></i>
+                    <span>Video</span>
+                  </button>
+                  <button type="button" class="media-upload-btn" data-type="audio">
+                    <i class="fas fa-music"></i>
+                    <span>Audio</span>
+                  </button>
+                  <button type="button" class="media-upload-btn" data-type="file">
+                    <i class="fas fa-file"></i>
+                    <span>File</span>
+                  </button>
+                </div>
+                
+                <div class="media-preview-container" id="media-preview">
+                  <div class="media-placeholder">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <p>Drag & drop files here or click on the buttons above</p>
+                  </div>
+                </div>
+                
+                <input type="file" id="media-upload" multiple style="display: none">
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-section">
+            <h2>Post Settings</h2>
+            
+            <div class="form-group">
+              <label>Visibility</label>
+              <div class="visibility-options">
+                <div class="visibility-option">
+                  <input type="radio" name="visibility" id="visibility-public" value="public" checked>
+                  <label for="visibility-public">
+                    <i class="fas fa-globe"></i>
+                    <div>
+                      <span>Public</span>
+                      <small>Visible to everyone</small>
+                    </div>
+                  </label>
+                </div>
+                
+                <div class="visibility-option">
+                  <input type="radio" name="visibility" id="visibility-subscribers" value="subscribers">
+                  <label for="visibility-subscribers">
+                    <i class="fas fa-user-check"></i>
+                    <div>
+                      <span>Subscribers Only</span>
+                      <small>Only visible to your subscribers</small>
+                    </div>
+                  </label>
+                </div>
+                
+                <div class="visibility-option">
+                  <input type="radio" name="visibility" id="visibility-ppv" value="ppv">
+                  <label for="visibility-ppv">
+                    <i class="fas fa-lock"></i>
+                    <div>
+                      <span>Pay-Per-View</span>
+                      <small>Users pay to unlock this content</small>
+                    </div>
+                  </label>
+                </div>
+              </div>
+            </div>
+            
+            <div class="form-group ppv-settings" id="ppv-settings">
+              <label for="ppv-price">Price ($)</label>
+              <input type="number" id="ppv-price" min="1" step="0.5" value="5.00">
+              <small>Set the price users will pay to unlock this content</small>
+            </div>
+            
+            <div class="form-group">
+              <label for="post-tags">Tags</label>
+              <input type="text" id="post-tags" placeholder="Add tags separated by commas">
+              <small>Tags help users discover your content</small>
+            </div>
+            
+            <div class="form-group">
+              <label>Schedule</label>
+              <div class="schedule-options">
+                <div class="schedule-option">
+                  <input type="radio" name="schedule" id="schedule-now" value="now" checked>
+                  <label for="schedule-now">Post now</label>
+                </div>
+                
+                <div class="schedule-option">
+                  <input type="radio" name="schedule" id="schedule-later" value="later">
+                  <label for="schedule-later">Schedule for later</label>
+                </div>
+              </div>
+              
+              <div class="schedule-datetime" id="schedule-datetime">
+                <input type="datetime-local" id="scheduled-time">
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-section">
+            <h2>Preview</h2>
+            <div class="post-preview" id="post-preview">
+              <div class="post-preview-header">
+                <div class="post-preview-user">
+                  <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+                  <div>
+                    <div class="post-preview-username">Your Name <span class="verified-badge admin"><i class="fas fa-check-circle"></i></span></div>
+                    <div class="post-preview-time">Just now</div>
+                  </div>
+                </div>
+                <div class="post-preview-visibility">
+                  <i class="fas fa-globe"></i>
+                </div>
+              </div>
+              
+              <div class="post-preview-title" id="preview-title"></div>
+              <div class="post-preview-content" id="preview-content">
+                <p>Your post content will appear here...</p>
+              </div>
+              
+              <div class="post-preview-media" id="preview-media"></div>
+              
+              <div class="post-preview-footer">
+                <div class="post-preview-stats">
+                  <div class="post-preview-stat">
+                    <i class="fas fa-heart"></i>
+                    <span>0</span>
+                  </div>
+                  <div class="post-preview-stat">
+                    <i class="fas fa-comment"></i>
+                    <span>0</span>
+                  </div>
+                  <div class="post-preview-stat">
+                    <i class="fas fa-bookmark"></i>
+                    <span>0</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline" id="save-draft-btn">Save as Draft</button>
+            <button type="submit" class="btn btn-primary" id="publish-btn">Publish Post</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-nav">
+    <ul class="admin-nav">
+      <li>
+        <a href="index.html">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="create-post.html" class="active">
+          <i class="fas fa-plus"></i>
+          <span>Add Post</span>
+        </a>
+      </li>
+      <li>
+        <a href="messages.html">
+          <i class="fas fa-comment"></i>
+          <span>Messages</span>
+        </a>
+      </li>
+      <li>
+        <a href="profile.html">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="toast" id="toast">
+    <div class="toast-content">
+      <i class="fas fa-check-circle"></i>
+      <div class="toast-message">Success message here</div>
+    </div>
+    <div class="toast-progress"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/auth.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/create-post.js"></script>
+</body>
+</html>

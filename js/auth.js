@@ -139,8 +139,17 @@ document.addEventListener("DOMContentLoaded", function () {
   // Debug: Check if we're on the login page
   console.log("Document loaded. Looking for login form...");
   
+  // Clear any existing auth data on login page load to prevent auto-login
+  if (window.location.pathname.includes('login.html') || 
+      window.location.pathname.endsWith('/login') || 
+      window.location.pathname === '/' || 
+      window.location.pathname === '') {
+    // Clear localStorage to prevent auto-login
+    Auth.logout();
+  }
+  
   const loginForm = document.getElementById("login-form");
-  const signupForm = document.getElementById("sigynup-form");
+  const signupForm = document.getElementById("signup-form");
   
   // Handle tab switching
   const authTabs = document.querySelectorAll('.auth-tab');
@@ -220,12 +229,14 @@ document.addEventListener("DOMContentLoaded", function () {
           console.log("Login successful, user:", user);
           showToast("Login successful!", "success");
           
-          // Add debug to check if this part is executing
-          console.log("Preparing to redirect to index.html...");
-          
+          // Redirect based on user role
           setTimeout(() => {
-            console.log("Redirecting now...");
-            window.location.href = "index.html";
+            console.log("Redirecting based on user role...");
+            if (user.isAdmin) {
+              window.location.href = "admin-chat.html";
+            } else {
+              window.location.href = "creator-chat.html";
+            }
           }, 1500);
         })
         .catch((error) => {
@@ -273,7 +284,7 @@ document.addEventListener("DOMContentLoaded", function () {
           showToast("Account created successfully!", "success");
           
           setTimeout(() => {
-            window.location.href = "index.html";
+            window.location.href = "creator-chat.html";
           }, 1500);
         })
         .catch((error) => {
@@ -288,42 +299,41 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Check if already logged in and redirect if needed
-  if (Auth.isLoggedIn()) {
-    // Check if we're on the login page (you may need to adjust this logic)
-    const currentPath = window.location.pathname;
-    if (currentPath.includes('login.html') || currentPath.endsWith('/login')) {
-      window.location.href = "index.html";
-    }
-  }
+  // REMOVED the auto-login check that was causing the issue
+  // Now users will need to explicitly log in
 });
 
 document.addEventListener("DOMContentLoaded", function() {
   // Get current user information
   const currentUser = Auth.getCurrentUser();
   
-  // Show the appropriate navigation based on user role
-  const userNav = document.querySelector('.user-nav');
-  const adminNav = document.querySelector('.admin-nav');
-  
-  if (currentUser && currentUser.isAdmin) {
-    // Show admin navigation
-    if (userNav) userNav.style.display = 'none';
-    if (adminNav) adminNav.style.display = 'flex';
-  } else {
-    // Show regular user navigation
-    if (userNav) userNav.style.display = 'flex';
-    if (adminNav) adminNav.style.display = 'none';
-  }
-  
-  // Highlight the active navigation item based on current page
-  const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll('.mobile-nav a');
-  
-  navLinks.forEach(link => {
-    link.classList.remove('active');
-    if (currentPath.includes(link.getAttribute('href'))) {
-      link.classList.add('active');
+  // Only apply navigation changes on non-login pages
+  if (!window.location.pathname.includes('login.html') && 
+      !window.location.pathname.endsWith('/login')) {
+    
+    // Show the appropriate navigation based on user role
+    const userNav = document.querySelector('.user-nav');
+    const adminNav = document.querySelector('.admin-nav');
+    
+    if (currentUser && currentUser.isAdmin) {
+      // Show admin navigation
+      if (userNav) userNav.style.display = 'none';
+      if (adminNav) adminNav.style.display = 'flex';
+    } else {
+      // Show regular user navigation
+      if (userNav) userNav.style.display = 'flex';
+      if (adminNav) adminNav.style.display = 'none';
     }
-  });
+    
+    // Highlight the active navigation item based on current page
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.mobile-nav a');
+    
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (currentPath.includes(link.getAttribute('href'))) {
+        link.classList.add('active');
+      }
+    });
+  }
 });

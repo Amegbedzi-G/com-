@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyFans | Creator Messages</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/chat.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+  <!-- Header Navigation (Desktop) -->
+  <header class="desktop-header">
+    <div class="container">
+      <div class="logo">
+        <h1>MyFans</h1>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="creator-chat.html" class="active">Messages</a></li>
+          <li><a href="earnings.html">Earnings</a></li>
+          <li><a href="content.html">Content</a></li>
+          <li class="theme-toggle">
+            <button id="theme-toggle-btn">
+              <i class="fas fa-moon"></i>
+            </button>
+          </li>
+          <li class="user-menu">
+            <div class="user-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="Creator Avatar">
+            </div>
+            <div class="dropdown-menu">
+              <a href="profile.html">Profile</a>
+              <a href="settings.html">Settings</a>
+              <a href="#" id="logout-btn">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="chat-container creator-only-chat">
+      <div class="chat-main">
+        <div class="chat-header">
+          <div class="chat-user-info">
+            <div class="chat-avatar">
+              <img src="/placeholder.svg?height=50&width=50" alt="Admin Avatar">
+              <span class="online-indicator"></span>
+            </div>
+            <div class="chat-user-details">
+              <div class="chat-username">MyFans Support</div>
+              <div class="admin-info">
+                <span class="admin-status">Admin</span>
+                <span class="admin-availability">Available 24/7</span>
+              </div>
+            </div>
+          </div>
+          <div class="chat-actions">
+            <button class="btn btn-icon" title="Help Center">
+              <i class="fas fa-question-circle"></i>
+            </button>
+            <button class="btn btn-icon" title="More">
+              <i class="fas fa-ellipsis-v"></i>
+            </button>
+          </div>
+        </div>
+        
+        <div class="chat-messages" id="creator-messages">
+          <div class="welcome-message">
+            <div class="welcome-icon">
+              <i class="fas fa-comments"></i>
+            </div>
+            <h3>Welcome to MyFans Support</h3>
+            <p>This is your direct line to the MyFans admin team. We're here to help with any questions or issues you may have.</p>
+            <p>Response time: <strong>Usually within 1 hour</strong></p>
+          </div>
+          
+          <div class="message-date">
+            <span>Today</span>
+          </div>
+          
+          <div class="message sent">
+            <div class="message-content">
+              <div class="message-text">Hello! I have a question about my account. I'm trying to set up my payment method but I'm getting an error.</div>
+              <div class="message-time">10:30 AM</div>
+              <div class="message-status">
+                <i class="fas fa-check-double"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="message received">
+            <div class="message-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="Admin Avatar">
+            </div>
+            <div class="message-content">
+              <div class="message-sender">MyFans Support</div>
+              <div class="message-text">Hi John, I'd be happy to help with that. What error message are you seeing?</div>
+              <div class="message-time">10:32 AM</div>
+            </div>
+          </div>
+          
+          <div class="message sent">
+            <div class="message-content">
+              <div class="message-text">It says "Payment method not supported in your region." But I'm using a valid credit card.</div>
+              <div class="message-time">10:35 AM</div>
+              <div class="message-status">
+                <i class="fas fa-check-double"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="message sent">
+            <div class="message-content">
+              <div class="message-text">Here's a screenshot of the error:</div>
+              <div class="message-media">
+                <img src="/placeholder.svg?height=200&width=300" alt="Error Screenshot">
+              </div>
+              <div class="message-time">10:36 AM</div>
+              <div class="message-status">
+                <i class="fas fa-check-double"></i>
+              </div>
+            </div>
+          </div>
+          
+          <div class="message received">
+            <div class="message-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="Admin Avatar">
+            </div>
+            <div class="message-content">
+              <div class="message-sender">MyFans Support</div>
+              <div class="message-text">Thanks for the screenshot. This sometimes happens due to regional restrictions. Let me check your account details and see what we can do to resolve this.</div>
+              <div class="message-time">10:40 AM</div>
+            </div>
+          </div>
+          
+          <div class="message sent">
+            <div class="message-content">
+              <div class="message-text">I have a question about my account</div>
+              <div class="message-time">10:45 AM</div>
+              <div class="message-status">
+                <i class="fas fa-check-double"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="typing-indicator" id="admin-typing">
+          <div class="typing-avatar">
+            <img src="/placeholder.svg?height=40&width=40" alt="Admin Avatar">
+          </div>
+          <div class="typing-bubbles">
+            <div class="typing-bubble"></div>
+            <div class="typing-bubble"></div>
+            <div class="typing-bubble"></div>
+          </div>
+        </div>
+        
+        <div class="chat-input-container">
+          <div class="chat-input-actions">
+            <button class="btn btn-icon" id="attach-file-btn" title="Attach File">
+              <i class="fas fa-paperclip"></i>
+            </button>
+            <button class="btn btn-icon" id="emoji-btn" title="Emoji">
+              <i class="fas fa-smile"></i>
+            </button>
+          </div>
+          <div class="chat-input">
+            <textarea id="creator-message-input" placeholder="Type a message..." rows="1"></textarea>
+          </div>
+          <div class="chat-input-send">
+            <button class="btn btn-icon" id="creator-send-btn" title="Send">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+      
+      <div class="help-sidebar">
+        <div class="help-header">
+          <h3>Help Center</h3>
+        </div>
+        
+        <div class="help-content">
+          <div class="help-section">
+            <h4>Common Questions</h4>
+            <ul class="help-links">
+              <li><a href="#" class="help-link">How to set up your profile</a></li>
+              <li><a href="#" class="help-link">Payment methods and payouts</a></li>
+              <li><a href="#" class="help-link">Content guidelines</a></li>
+              <li><a href="#" class="help-link">Account verification process</a></li>
+              <li><a href="#" class="help-link">Subscription management</a></li>
+            </ul>
+          </div>
+          
+          <div class="help-section">
+            <h4>Quick Tips</h4>
+            <div class="tip-card">
+              <div class="tip-icon">
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <div class="tip-content">
+                <h5>Increase Your Earnings</h5>
+                <p>Regular posting and engaging with your subscribers can increase your earnings by up to 40%.</p>
+              </div>
+            </div>
+            
+            <div class="tip-card">
+              <div class="tip-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="tip-content">
+                <h5>Protect Your Content</h5>
+                <p>Use watermarks and copyright notices to protect your content from unauthorized sharing.</p>
+              </div>
+            </div>
+            
+            <div class="tip-card">
+              <div class="tip-icon">
+                <i class="fas fa-chart-line"></i>
+              </div>
+              <div class="tip-content">
+                <h5>Track Your Performance</h5>
+                <p>Check your analytics regularly to understand what content performs best with your audience.</p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="help-section">
+            <h4>Contact Options</h4>
+            <div class="contact-options">
+              <a href="#" class="contact-option">
+                <i class="fas fa-envelope"></i>
+                <span>Email Support</span>
+              </a>
+              <a href="#" class="contact-option">
+                <i class="fas fa-phone"></i>
+                <span>Phone Support</span>
+              </a>
+              <a href="#" class="contact-option">
+                <i class="fas fa-question-circle"></i>
+                <span>FAQ</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-nav">
+    <ul class="creator-nav">
+      <li>
+        <a href="index.html">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="content.html">
+          <i class="fas fa-photo-video"></i>
+          <span>Content</span>
+        </a>
+      </li>
+      <li>
+        <a href="creator-chat.html" class="active">
+          <i class="fas fa-comment"></i>
+          <span>Messages</span>
+        </a>
+      </li>
+      <li>
+        <a href="earnings.html">
+          <i class="fas fa-dollar-sign"></i>
+          <span>Earnings</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Modals -->
+  <div class="modal" id="attachment-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Send Attachment</h2>
+      <div class="attachment-options">
+        <button class="attachment-option" data-type="image">
+          <i class="fas fa-image"></i>
+          <span>Image</span>
+        </button>
+        <button class="attachment-option" data-type="video">
+          <i class="fas fa-video"></i>
+          <span>Video</span>
+        </button>
+        <button class="attachment-option" data-type="audio">
+          <i class="fas fa-music"></i>
+          <span>Audio</span>
+        </button>
+        <button class="attachment-option" data-type="file">
+          <i class="fas fa-file"></i>
+          <span>File</span>
+        </button>
+      </div>
+      <div class="attachment-preview">
+        <div class="attachment-placeholder">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>Drag & drop files here or click on the buttons above</p>
+        </div>
+      </div>
+      <div class="attachment-actions">
+        <button class="btn btn-outline" id="cancel-attachment">Cancel</button>
+        <button class="btn btn-primary" id="send-attachment">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">
+    <div class="toast-content">
+      <i class="fas fa-check-circle"></i>
+      <div class="toast-message">Success message here</div>
+    </div>
+    <div class="toast-progress"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/auth.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/creator-chat.js"></script>
+</body>
+</html>

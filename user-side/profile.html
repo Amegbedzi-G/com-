@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyFans | Profile</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/profile.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+  <!-- Header Navigation (Desktop) -->
+  <header class="desktop-header">
+    <div class="container">
+      <div class="logo">
+        <h1>MyFans</h1>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="profile.html" class="active">Profile</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li><a href="wallet.html">Wallet</a></li>
+          <li><a href="subscriptions.html">Subscriptions</a></li>
+          <li class="admin-only"><a href="admin-dashboard.html">Dashboard</a></li>
+          <li class="theme-toggle">
+            <button id="theme-toggle-btn">
+              <i class="fas fa-moon"></i>
+            </button>
+          </li>
+          <li class="user-menu">
+            <div class="user-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+            </div>
+            <div class="dropdown-menu">
+              <a href="profile.html">Profile</a>
+              <a href="settings.html">Settings</a>
+              <a href="#" id="logout-btn">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="profile-container">
+      <div class="profile-header">
+        <div class="profile-cover">
+          <img src="images/image.png" alt="Cover Photo" style="object-fit: fill;">
+          <button class="edit-cover admin-only">
+            <i class="fas fa-camera"></i>
+          </button>
+        </div>
+        <div class="profile-info">
+          <div class="profile-avatar">
+            <img src="images/image1.png" alt="Profile Avatar" style="object-fit: cover;">
+            <button class="edit-avatar admin-only">
+              <i class="fas fa-camera"></i>
+            </button>
+          </div>
+          <div class="profile-details">
+            <h1 class="profile-name">John Doe <span class="verified-badge admin"><i class="fas fa-check-circle"></i></span></h1>
+            <p class="profile-username">@johndoe</p>
+            <p class="profile-bio">Content creator sharing my journey and exclusive content with my fans.</p>
+            <div class="profile-stats">
+              <div class="stat">
+                <span class="stat-value">120</span>
+                <span class="stat-label">Posts</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value">1.5K</span>
+                <span class="stat-label">Subscribers</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value">10K</span>
+                <span class="stat-label">Likes</span>
+              </div>
+            </div>
+          </div>
+          <div class="profile-actions">
+            <button class="btn btn-primary subscribe-btn" id="subscribe-btn">Subscribe</button>
+            <button class="btn btn-outline message-btn" id="message-btn">Message</button>
+            <div class="share-profile">
+              <button class="btn btn-icon" id="share-profile-btn">
+                <i class="fas fa-share-alt"></i>
+              </button>
+              <div class="share-dropdown">
+                <button class="copy-link" id="copy-profile-link">
+                  <i class="fas fa-link"></i> Copy Profile Link
+                </button>
+                <div class="social-share">
+                  <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                  <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                  <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="profile-content">
+        <div class="profile-tabs">
+          <button class="profile-tab active" data-tab="posts">Posts</button>
+          <button class="profile-tab" data-tab="media">Media</button>
+          <button class="profile-tab" data-tab="about">About</button>
+        </div>
+        
+        <div class="profile-tab-content active" id="posts-tab">
+          <div class="posts-grid" id="profile-posts">
+            <!-- Posts will be loaded here via JavaScript -->
+            <div class="loading-spinner">
+              <div class="spinner"></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="profile-tab-content" id="media-tab">
+          <div class="media-grid" id="profile-media">
+            <!-- Media will be loaded here via JavaScript -->
+          </div>
+        </div>
+        
+        <div class="profile-tab-content" id="about-tab">
+          <div class="about-section">
+            <h3>About</h3>
+            <p>Content creator passionate about sharing my journey with my fans. Subscribe for exclusive content and behind-the-scenes access.</p>
+            
+            <h3>Subscription Plans</h3>
+            <div class="subscription-plans">
+              <div class="plan">
+                <h4>Weekly</h4>
+                <p class="plan-price">$4.99</p>
+                <ul class="plan-features">
+                  <li>Access to all posts</li>
+                  <li>Direct messaging</li>
+                </ul>
+                <button class="btn btn-primary">Subscribe</button>
+              </div>
+              <div class="plan">
+                <h4>Monthly</h4>
+                <p class="plan-price">$14.99</p>
+                <p class="plan-discount">Save 25%</p>
+                <ul class="plan-features">
+                  <li>Access to all posts</li>
+                  <li>Direct messaging</li>
+                  <li>Exclusive monthly content</li>
+                </ul>
+                <button class="btn btn-primary">Subscribe</button>
+              </div>
+              <div class="plan featured">
+                <h4>Yearly</h4>
+                <p class="plan-price">$149.99</p>
+                <p class="plan-discount">Save 50%</p>
+                <ul class="plan-features">
+                  <li>Access to all posts</li>
+                  <li>Direct messaging</li>
+                  <li>Exclusive monthly content</li>
+                  <li>Priority responses</li>
+                  <li>Custom requests</li>
+                </ul>
+                <button class="btn btn-primary">Subscribe</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-nav">
+    <ul class="user-nav">
+      <li>
+        <a href="index.html">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="messages.html">
+          <i class="fas fa-comment"></i>
+          <span>Messages</span>
+        </a>
+      </li>
+      <li>
+        <a href="profile.html" class="active">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+        </a>
+      </li>
+      <li>
+        <a href="settings.html">
+          <i class="fas fa-cog"></i>
+          <span>Settings</span>
+        </a>
+      </li>
+    </ul>
+    <ul class="admin-nav">
+      <li>
+        <a href="index.html">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="create-post.html">
+          <i class="fas fa-plus"></i>
+          <span>Add Post</span>
+        </a>
+      </li>
+      <li>
+        <a href="messages.html">
+          <i class="fas fa-comment"></i>
+          <span>Messages</span>
+        </a>
+      </li>
+      <li>
+        <a href="profile.html" class="active">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Modals -->
+  <div class="modal" id="subscription-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Choose a Subscription Plan</h2>
+      <div class="subscription-plans-modal">
+        <div class="plan">
+          <h4>Weekly</h4>
+          <p class="plan-price">$4.99</p>
+          <ul class="plan-features">
+            <li>Access to all posts</li>
+            <li>Direct messaging</li>
+          </ul>
+          <button class="btn btn-primary" data-plan="weekly">Subscribe</button>
+        </div>
+        <div class="plan">
+          <h4>Monthly</h4>
+          <p class="plan-price">$14.99</p>
+          <p class="plan-discount">Save 25%</p>
+          <ul class="plan-features">
+            <li>Access to all posts</li>
+            <li>Direct messaging</li>
+            <li>Exclusive monthly content</li>
+          </ul>
+          <button class="btn btn-primary" data-plan="monthly">Subscribe</button>
+        </div>
+        <div class="plan featured">
+          <h4>Yearly</h4>
+          <p class="plan-price">$149.99</p>
+          <p class="plan-discount">Save 50%</p>
+          <ul class="plan-features">
+            <li>Access to all posts</li>
+            <li>Direct messaging</li>
+            <li>Exclusive monthly content</li>
+            <li>Priority responses</li>
+            <li>Custom requests</li>
+          </ul>
+          <button class="btn btn-primary" data-plan="yearly">Subscribe</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="share-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Share Profile</h2>
+      <div class="share-link">
+        <input type="text" id="profile-link" value="https://myfans.com/johndoe" readonly>
+        <button id="copy-link-btn" class="btn btn-primary">Copy</button>
+      </div>
+      <div class="social-share-modal">
+        <h3>Share on Social Media</h3>
+        <div class="social-icons">
+          <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-icon"><i class="fab fa-telegram"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">
+    <div class="toast-content">
+      <i class="fas fa-check-circle"></i>
+      <div class="toast-message">Success message here</div>
+    </div>
+    <div class="toast-progress"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/auth.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="/js/profile.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyFans | Home</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="css/feed.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+  <!-- Header Navigation (Desktop) -->
+  <header class="desktop-header">
+    <div class="container">
+      <div class="logo">
+        <h1>MyFans</h1>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="profile.html">Profile</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li><a href="wallet.html">Wallet</a></li>
+          <li><a href="subscriptions.html">Subscriptions</a></li>
+          <li class="theme-toggle">
+            <button id="theme-toggle-btn">
+              <i class="fas fa-moon"></i>
+            </button>
+          </li>
+          <li class="user-menu">
+            <div class="user-avatar">
+              <img src="/images/image1.png" alt="User Avatar" style="object-fit: fill;">
+            </div>
+            <div class="dropdown-menu">
+              <a href="profile.html">Profile</a>
+              <a href="settings.html">Settings</a>
+              <a href="#" id="logout-btn">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="feed-container">
+      <div class="feed-sidebar">
+        <div class="user-profile-card">
+          <div class="user-profile-header">
+            <div class="user-avatar">
+              <img src="/images/image1.png" alt="User Avatar" style="object-fit: fill;">
+            </div>
+            <div class="user-info">
+              <h3>John Smith</h3>
+              <p>@johnsmith</p>
+            </div>
+          </div>
+          <div class="user-stats">
+            <div class="stat">
+              <span class="stat-value">12</span>
+              <span class="stat-label">Subscriptions</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value">$45.50</span>
+              <span class="stat-label">Balance</span>
+            </div>
+          </div>
+        </div>
+       
+        
+        <div class="sidebar-section">
+          <h3>Categories</h3>
+          <div class="category-list">
+            
+         
+          
+          </div>
+        </div>
+      </div>
+      
+      <div class="feed-content">
+        <div class="feed-filter">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="subscribed">Subscribed</button>
+          <button class="filter-btn" data-filter="trending">Trending</button>
+          <button class="filter-btn" data-filter="recent">Recent</button>
+        </div>
+        
+        <div class="posts-container">
+          <!-- Regular Post with Text and Image -->
+          <div class="post">
+            <div class="post-header">
+              <div class="post-user">
+                <div class="post-avatar">
+                  <img src="/images/image1.png" alt="Creator Avatar" style="object-fit: fill;">
+                </div>
+                <div class="post-user-info">
+                  <div class="post-username">
+                    John Doe <span class="verified-badge admin"><i class="fas fa-check-circle"></i></span>
+                  </div>
+                  <div class="post-time">2 hours ago</div>
+                </div>
+              </div>
+              <div class="post-actions">
+                <button class="btn btn-icon">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="post-content">
+              <div class="post-text">
+                <p>Just finished a new workout routine! Check out these exercises for building core strength. Let me know what you think in the comments below!</p>
+              </div>
+              <div class="post-media">
+                <img src="/images/image.png" alt="Post Image" class="post-image">
+              </div>
+            </div>
+            
+            <div class="post-stats">
+              <div class="post-stat">
+                <i class="fas fa-heart"></i>
+                <span>245</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-comment"></i>
+                <span>32</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-bookmark"></i>
+                <span>18</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-share"></i>
+                <span>5</span>
+              </div>
+            </div>
+            
+            <div class="post-actions-bar">
+              <button class="post-action-btn">
+                <i class="far fa-heart"></i>
+                <span>Like</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-comment"></i>
+                <span>Comment</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-bookmark"></i>
+                <span>Save</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-share-square"></i>
+                <span>Share</span>
+              </button>
+            </div>
+            
+            <div class="post-comments">
+              <div class="comment-form">
+                <div class="comment-avatar">
+                  <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+                </div>
+                <div class="comment-input-container">
+                  <input type="text" placeholder="Write a comment..." class="comment-input">
+                  <button class="comment-submit">
+                    <i class="fas fa-paper-plane"></i>
+                  </button>
+                </div>
+              </div>
+              
+              <div class="comments-list">
+                <div class="comment">
+                  <div class="comment-avatar">
+                    <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+                  </div>
+                  <div class="comment-content">
+                    <div class="comment-user">Sarah M.</div>
+                    <div class="comment-text">Great workout routine! I'll definitely try these exercises.</div>
+                    <div class="comment-actions">
+                      <span class="comment-time">45 min ago</span>
+                      <button class="comment-like">Like</button>
+                      <button class="comment-reply">Reply</button>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="comment">
+                  <div class="comment-avatar">
+                    <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+                  </div>
+                  <div class="comment-content">
+                    <div class="comment-user">Mike T.</div>
+                    <div class="comment-text">What equipment do I need for this routine?</div>
+                    <div class="comment-actions">
+                      <span class="comment-time">20 min ago</span>
+                      <button class="comment-like">Like</button>
+                      <button class="comment-reply">Reply</button>
+                    </div>
+                  </div>
+                </div>
+                
+                <button class="view-more-comments">View more comments</button>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Video Post -->
+          <div class="post">
+            <div class="post-header">
+              <div class="post-user">
+                <div class="post-avatar">
+                  <img src="/images/image1.png" alt="Creator Avatar" style="object-fit: fill;">
+                </div>
+                <div class="post-user-info">
+                  <div class="post-username">
+                    Mike Johnson <span class="verified-badge admin"><i class="fas fa-check-circle"></i></span>
+                  </div>
+                  <div class="post-time">5 hours ago</div>
+                </div>
+              </div>
+              <div class="post-actions">
+                <button class="btn btn-icon">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="post-content">
+              <div class="post-text">
+                <p>New gaming tutorial! Learn how to master these advanced techniques.</p>
+              </div>
+              <div class="post-media">
+                <div class="video-container">
+                  <video controls poster="/placeholder.svg?height=400&width=600">
+                    <source src="#" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video>
+                  <div class="video-duration">12:45</div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="post-stats">
+              <div class="post-stat">
+                <i class="fas fa-heart"></i>
+                <span>189</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-comment"></i>
+                <span>24</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-bookmark"></i>
+                <span>42</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-share"></i>
+                <span>8</span>
+              </div>
+            </div>
+            
+            <div class="post-actions-bar">
+              <button class="post-action-btn">
+                <i class="far fa-heart"></i>
+                <span>Like</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-comment"></i>
+                <span>Comment</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-bookmark"></i>
+                <span>Save</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-share-square"></i>
+                <span>Share</span>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Pay-Per-View Post -->
+          <div class="post">
+            <div class="post-header">
+              <div class="post-user">
+                <div class="post-avatar">
+                  <img src="/images/image1.png" alt="Creator Avatar" style="object-fit: fill;">
+                </div>
+                <div class="post-user-info">
+                  <div class="post-username">
+                    Sarah Williams <span class="verified-badge admin"><i class="fas fa-check-circle"></i></span>
+                  </div>
+                  <div class="post-time">Yesterday</div>
+                </div>
+              </div>
+              <div class="post-actions">
+                <button class="btn btn-icon">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="post-content">
+              <div class="post-text">
+                <p>Exclusive photoshoot! Unlock to see all the images.</p>
+              </div>
+              <div class="post-media ppv-content">
+                <div class="ppv-preview">
+                  <img src="/images/image1.png" alt="PPV Content Preview" class="blurred">
+                  <div class="ppv-overlay">
+                    <div class="ppv-info">
+                      <i class="fas fa-lock"></i>
+                      <p>Pay-per-view content</p>
+                      <p class="ppv-price">$5.00</p>
+                    </div>
+                    <button class="btn btn-primary unlock-ppv">Unlock Now</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="post-stats">
+              <div class="post-stat">
+                <i class="fas fa-heart"></i>
+                <span>312</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-comment"></i>
+                <span>18</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-bookmark"></i>
+                <span>56</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-share"></i>
+                <span>3</span>
+              </div>
+            </div>
+            
+            <div class="post-actions-bar">
+              <button class="post-action-btn">
+                <i class="far fa-heart"></i>
+                <span>Like</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-comment"></i>
+                <span>Comment</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-bookmark"></i>
+                <span>Save</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-share-square"></i>
+                <span>Share</span>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Text-only Post -->
+          <div class="post">
+            <div class="post-header">
+              <div class="post-user">
+                <div class="post-avatar">
+                  <img src="/images/image1.png" alt="Creator Avatar" style="object-fit: fill;">
+                </div>
+                <div class="post-user-info">
+                  <div class="post-username">
+                    Emma Thompson <span class="verified-badge admin"><i class="fas fa-check-circle"></i></span>
+                  </div>
+                  <div class="post-time">2 days ago</div>
+                </div>
+              </div>
+              <div class="post-actions">
+                <button class="btn btn-icon">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="post-content">
+              <div class="post-text">
+                <p>I'm excited to announce that I'll be hosting a live Q&A session next week! Drop your questions in the comments and I'll try to answer as many as possible during the stream.</p>
+                <p>The session will be on Friday at 7 PM EST. Mark your calendars!</p>
+                <p>Subscribers will get priority for questions, so make sure you're subscribed to my channel!</p>
+              </div>
+            </div>
+            
+            <div class="post-stats">
+              <div class="post-stat">
+                <i class="fas fa-heart"></i>
+                <span>178</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-comment"></i>
+                <span>45</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-bookmark"></i>
+                <span>12</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-share"></i>
+                <span>7</span>
+              </div>
+            </div>
+            
+            <div class="post-actions-bar">
+              <button class="post-action-btn">
+                <i class="far fa-heart"></i>
+                <span>Like</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-comment"></i>
+                <span>Comment</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-bookmark"></i>
+                <span>Save</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-share-square"></i>
+                <span>Share</span>
+              </button>
+            </div>
+          </div>
+          
+          <!-- Multiple Images Post -->
+          <div class="post">
+            <div class="post-header">
+              <div class="post-user">
+                <div class="post-avatar">
+                  <img src="/images/image1.png" alt="Creator Avatar">
+                </div>
+                <div class="post-user-info">
+                  <div class="post-username">
+                    David Williams <span class="verified-badge admin"><i class="fas fa-check-circle"></i></span>
+                  </div>
+                  <div class="post-time">3 days ago</div>
+                </div>
+              </div>
+              <div class="post-actions">
+                <button class="btn btn-icon">
+                  <i class="fas fa-ellipsis-h"></i>
+                </button>
+              </div>
+            </div>
+            
+            <div class="post-content">
+              <div class="post-text">
+                <p>Some highlights from my recent photography trip. Which one is your favorite?</p>
+              </div>
+              <div class="post-media">
+                <div class="image-gallery">
+                  <div class="image-gallery-row">
+                    <img src="/images/image.png" alt="Gallery Image 1" class="gallery-image">
+                    <img src="/images/image1.png" alt="Gallery Image 2" class="gallery-image">
+                  </div>
+                  <div class="image-gallery-row">
+                    <img src="/images/image1.png" alt="Gallery Image 4" class="gallery-image">
+                    <img src="/images/image.png" alt="Gallery Image 3" class="gallery-image">
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="post-stats">
+              <div class="post-stat">
+                <i class="fas fa-heart"></i>
+                <span>256</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-comment"></i>
+                <span>38</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-bookmark"></i>
+                <span>29</span>
+              </div>
+              <div class="post-stat">
+                <i class="fas fa-share"></i>
+                <span>12</span>
+              </div>
+            </div>
+            
+            <div class="post-actions-bar">
+              <button class="post-action-btn">
+                <i class="far fa-heart"></i>
+                <span>Like</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-comment"></i>
+                <span>Comment</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-bookmark"></i>
+                <span>Save</span>
+              </button>
+              <button class="post-action-btn">
+                <i class="far fa-share-square"></i>
+                <span>Share</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        
+     
+      </div>
+    </div>
+  </main>
+
+  <!-- Mobile Bottom Navigation -->
+  <nav class="mobile-nav">
+    <ul class="user-nav">
+      <li>
+        <a href="index.html" class="active">
+          <i class="fas fa-home"></i>
+          <span>Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="search.html">
+          <i class="fas fa-search"></i>
+          <span>Search</span>
+        </a>
+      </li>
+      <li>
+        <a href="messages.html">
+          <i class="fas fa-comment"></i>
+          <span>Messages</span>
+        </a>
+      </li>
+      <li>
+        <a href="profile.html">
+          <i class="fas fa-user"></i>
+          <span>Profile</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Modals -->
+  <div class="modal" id="unlock-ppv-modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Unlock Pay-Per-View Content</h2>
+      <div class="ppv-preview-modal">
+        <img src="/placeholder.svg?height=200&width=300" alt="PPV Content Preview" class="blurred">
+      </div>
+      <p>Unlock this exclusive content for <span class="ppv-price">$5.00</span></p>
+      <div class="wallet-balance">
+        <p>Wallet Balance: <span id="wallet-balance-ppv">$45.50</span></p>
+      </div>
+      <button class="btn btn-primary btn-block" id="confirm-unlock-ppv">Unlock Now</button>
+      <p class="wallet-low"><a href="wallet.html">Top up your wallet</a></p>
+    </div>
+  </div>
+
+  <div class="toast" id="toast">
+    <div class="toast-content">
+      <i class="fas fa-check-circle"></i>
+      <div class="toast-message">Success message here</div>
+    </div>
+    <div class="toast-progress"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/auth.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/feed.js"></script>
+</body>
+</html>
