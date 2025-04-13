@@ -1,7 +1,7 @@
-{
-  "scripts": {
-    "build": "[my-framework] build --output public"
-  }
+"scripts": {
+  "build": "next build" // if you're using Next.js
+  // or
+  "build": "vite build" // if you're using Vite
+  // or
+  "build": "react-scripts build" // for Create React App
 }
-
-
