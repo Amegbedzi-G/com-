@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyFans | Fund Request Details</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="css/fund-request-details.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+  <!-- Header Navigation (Desktop) -->
+  <header class="desktop-header">
+    <div class="container">
+      <div class="logo">
+        <h1>MyFans</h1>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="admin-profile.html">Profile</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li><a href="fund-account.html">Wallet</a></li>
+          <li><a href="admin-fund-requests.html" class="active">Fund Requests</a></li>
+          <li><a href="subscriptions.html" class="active">Subscriptions</a></li>
+          <li class="theme-toggle">
+          <li class="theme-toggle">
+            <button id="theme-toggle-btn">
+              <i class="fas fa-moon"></i>
+            </button>
+          </li>
+          <li class="user-menu">
+            <div class="user-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+            </div>
+            <div class="dropdown-menu">
+              <a href="admin-profile.html">Profile</a>
+              <a href="admin-settings.html">Settings</a>
+              <a href="#" id="logout-btn">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="back-button">
+      <i class="fas fa-arrow-left"></i>
+      <span>Back to Fund Requests</span>
+    </div>
+    
+    <div class="request-details-container">
+      <!-- Request details will be loaded here -->
+    </div>
+  </main>
+
+ <!-- Mobile Bottom Navigation -->
+ <nav class="mobile-nav">
+  <ul class="admin-nav">
+    <li>
+      <a href="index.html" class="active">
+        <i class="fas fa-home"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="create-post.html">
+        <i class="fas fa-plus"></i>
+        <span>Add Post</span>
+      </a>
+      </a>
+    </li>
+    <li>
+      <a href="messages.html">
+        <i class="fas fa-comment"></i>
+        <span>Messages</span>
+      </a>
+      </a>
+    </li>
+    <li>
+      <a href="admin-profile.html">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+  <div class="toast" id="toast">
+    <div class="toast-content">
+      <i class="fas fa-check-circle"></i>
+      <div class="toast-message">Success message here</div>
+    </div>
+    <div class="toast-progress"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/auth.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="js/fund-request-details.js"></script>
+</body>
+</html>

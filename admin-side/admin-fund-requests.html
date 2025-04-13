@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyFans | Admin - Fund Requests</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="css/admin-fund-requests.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="light-mode">
+  <!-- Header Navigation (Desktop) -->
+  <header class="desktop-header">
+    <div class="container">
+      <div class="logo">
+        <h1>MyFans</h1>
+      </div>
+      <nav class="desktop-nav">
+        <ul>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="admin-profile.html">Profile</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li><a href="fund-account.html">Wallet</a></li>
+          <li><a href="admin-fund-requests.html" class="active">Fund Requests</a></li>
+          <li><a href="subscriptions.html" class="active">Subscriptions</a></li>
+          <li class="theme-toggle">
+          <li class="theme-toggle">
+            <button id="theme-toggle-btn">
+              <i class="fas fa-moon"></i>
+            </button>
+          </li>
+          <li class="user-menu">
+            <div class="user-avatar">
+              <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
+            </div>
+            <div class="dropdown-menu">
+              <a href="admin-profile.html">Profile</a>
+              <a href="admin-settings.html">Settings</a>
+              <a href="#" id="logout-btn">Logout</a>
+            </div>
+          </li>
+        </ul>
+      </nav>
+      <button class="mobile-menu-btn">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container">
+    <div class="fund-requests-container">
+      <div class="fund-requests-header">
+        <h1>Fund Requests</h1>
+      </div>
+      
+      <div class="fund-requests-stats">
+        <div class="stat-card">
+          <div class="stat-value">12</div>
+          <div class="stat-label">Pending Requests</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">$1,250.00</div>
+          <div class="stat-label">Pending Amount</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">45</div>
+          <div class="stat-label">Completed This Month</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">$4,500.00</div>
+          <div class="stat-label">Funded This Month</div>
+        </div>
+      </div>
+      
+      <div class="fund-requests-filters">
+        <div class="search-container">
+          <i class="fas fa-search"></i>
+          <input type="text" id="search-requests" placeholder="Search by name, ID, or reference...">
+        </div>
+        <div class="filter-container">
+          <select id="filter-requests">
+            <option value="all">All Statuses</option>
+            <option value="pending">Pending</option>
+            <option value="account_provided">Account Provided</option>
+            <option value="awaiting_review">Awaiting Review</option>
+            <option value="under_review">Under Review</option>
+            <option value="approved">Approved</option>
+            <option value="funded">Funded</option>
+            <option value="rejected">Rejected</option>
+            <option value="cancelled">Cancelled</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="fund-requests-tabs">
+        <button class="requests-tab active" data-tab="pending">Pending (12)</button>
+        <button class="requests-tab" data-tab="completed">Completed</button>
+      </div>
+      
+      <div class="requests-tab-content active" id="pending-tab">
+        <div id="pending-requests-list">
+          <!-- Pending requests will be loaded here -->
+          <div class="fund-request">
+            <div class="request-info">
+              <div class="request-user">
+                <div class="user-avatar">
+                  <img src="/placeholder.svg?height=60&width=60" alt="User Avatar">
+                </div>
+                <div class="user-details">
+                  <h3>John Doe</h3>
+                  <p>User ID: user123</p>
+                </div>
+              </div>
+              <div class="request-details">
+                <div class="request-amount">$100.00</div>
+                <div class="request-method">Bank Transfer</div>
+                <div class="request-date">June 10, 2023 - 2:30 PM</div>
+                <div class="request-reference">Ref: MF123456</div>
+              </div>
+              <div class="request-status">
+                <span class="status-badge pending">Pending</span>
+              </div>
+            </div>
+            <div class="request-actions">
+              <button class="btn btn-sm btn-primary provide-account-btn" data-request-id="req1">Provide Account</button>
+              <button class="btn btn-sm btn-outline view-request-btn" data-request-id="req1">View Details</button>
+            </div>
+          </div>
+          
+          <div class="fund-request">
+            <div class="request-info">
+              <div class="request-user">
+                <div class="user-avatar">
+                  <img src="/placeholder.svg?height=60&width=60" alt="User Avatar">
+                </div>
+                <div class="user-details">
+                  <h3>Jane Smith</h3>
+                  <p>User ID: user456</p>
+                </div>
+              </div>
+              <div class="request-details">
+                <div class="request-amount">$50.00</div>
+                <div class="request-method">Bank Transfer</div>
+                <div class="request-date">June 9, 2023 - 11:15 AM</div>
+                <div class="request-reference">Ref: MF123457</div>
+              </div>
+              <div class="request-status">
+                <span class="status-badge awaiting">Proof Submitted</span>
+              </div>
+            </div>
+            <div class="request-actions">
+              <button class="btn btn-sm btn-primary approve-request-btn" data-request-id="req2">Approve & Fund</button>
+              <button class="btn btn-sm btn-danger reject-request-btn" data-request-id="req2">Reject</button>
+              <button class="btn btn-sm btn-outline view-request-btn" data-request-id="req2">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="requests-tab-content" id="completed-tab">
+        <div id="completed-requests-list">
+          <!-- Completed requests will be loaded here -->
+          <div class="fund-request">
+            <div class="request-info">
+              <div class="request-user">
+                <div class="user-avatar">
+                  <img src="/placeholder.svg?height=60&width=60" alt="User Avatar">
+                </div>
+                <div class="user-details">
+                  <h3>Mike Johnson</h3>
+                  <p>User ID: user789</p>
+                </div>
+              </div>
+              <div class="request-details">
+                <div class="request-amount">$75.00</div>
+                <div class="request-method">Bank Transfer</div>
+                <div class="request-date">June 8, 2023 - 3:45 PM</div>
+                <div class="request-reference">Ref: MF123458</div>
+              </div>
+              <div class="request-status">
+                <span class="status-badge funded">Funded</span>
+              </div>
+            </div>
+            <div class="request-actions">
+              <button class="btn btn-sm btn-outline view-request-btn" data-request-id="req3">View Details</button>
+            </div>
+          </div>
+          
+          <div class="fund-request">
+            <div class="request-info">
+              <div class="request-user">
+                <div class="user-avatar">
+                  <img src="/placeholder.svg?height=60&width=60" alt="User Avatar">
+                </div>
+                <div class="user-details">
+                  <h3>Sarah Williams</h3>
+                  <p>User ID: user101</p>
+                </div>
+              </div>
+              <div class="request-details">
+                <div class="request-amount">$200.00</div>
+                <div class="request-method">Bank Transfer</div>
+                <div class="request-date">June 7, 2023 - 10:20 AM</div>
+                <div class="request-reference">Ref: MF123459</div>
+              </div>
+              <div class="request-status">
+                <span class="status-badge rejected">Rejected</span>
+              </div>
+            </div>
+            <div class="request-actions">
+              <button class="btn btn-sm btn-outline view-request-btn" data-request-id="req4">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+ <!-- Mobile Bottom Navigation -->
+ <nav class="mobile-nav">
+  <ul class="admin-nav">
+    <li>
+      <a href="index.html" class="active">
+        <i class="fas fa-home"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="create-post.html">
+        <i class="fas fa-plus"></i>
+        <span>Add Post</span>
+      </a>
+      </a>
+    </li>
+    <li>
+      <a href="messages.html">
+        <i class="fas fa-comment"></i>
+        <span>Messages</span>
+      </a>
+      </a>
+    </li>
+    <li>
+      <a href="admin-profile.html">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+  <div class="toast" id="toast">
+    <div class="toast-content">
+      <i class="fas fa-check-circle"></i>
+      <div class="toast-message">Success message here</div>
+    </div>
+    <div class="toast-progress"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/auth.js"></script>
+  <script src="/js/theme.js"></script>
+  <script src="js/admin-fund-requests.js"></script>
+</body>
+</html>

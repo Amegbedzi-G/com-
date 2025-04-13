@@ -1,226 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyFans | Wallet</title>
-  <link rel="stylesheet" href="/css/styles.css">
-  <link rel="stylesheet" href="/css/wallet.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MyFans | Fund Account</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="stylesheet" href="/css/wallet.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="light-mode">
-  <!-- Header Navigation (Desktop) -->
-  <header class="desktop-header">
-    <div class="container">
-      <div class="logo">
-        <h1>MyFans</h1>
-      </div>
-      <nav class="desktop-nav">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="profile.html">Profile</a></li>
-          <li><a href="messages.html">Messages</a></li>
-          <li><a href="wallet.html" class="active">Wallet</a></li>
-          <li><a href="subscriptions.html">Subscriptions</a></li>
-          <li class="admin-only"><a href="admin-dashboard.html">Dashboard</a></li>
-          <li class="theme-toggle">
-            <button id="theme-toggle-btn">
-              <i class="fas fa-moon"></i>
-            </button>
-          </li>
-          <li class="user-menu">
-            <div class="user-avatar">
-              <img src="/placeholder.svg?height=40&width=40" alt="User Avatar">
-            </div>
-            <div class="dropdown-menu">
-              <a href="profile.html">Profile</a>
-              <a href="settings.html">Settings</a>
-              <a href="#" id="logout-btn">Logout</a>
-            </div>
-          </li>
-        </ul>
-      </nav>
-      <button class="mobile-menu-btn">
-        <i class="fas fa-bars"></i>
-      </button>
+<!-- Header Navigation (Desktop) -->
+<header class="desktop-header">
+  <div class="container">
+    <div class="logo">
+      <h1>MyFans</h1>
     </div>
-  </header>
+    <nav class="desktop-nav">
+      <ul>
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="admin-profile.html">Profile</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="fund-account.html">Wallet</a></li>
+        <li><a href="subscriptions.html" class="active">Subscriptions</a></li>
+        <li class="theme-toggle">
+          <button id="theme-toggle-btn">
+            <i class="fas fa-moon"></i>
+          </button>
+        </li>
+        <li class="user-menu">
+          <div class="user-avatar">
+            <img src="/images/image1.png" alt="User Avatar" style="object-fit: fill;">
+          </div>
+          <div class="dropdown-menu">
+            <a href="settings.html">Settings</a>
+            <a href="/index.html" id="logout-btn">Logout</a>>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <button class="mobile-menu-btn">
+      <i class="fas fa-bars"></i>
+    </button>
+  </div>
+</header>
 
-  <!-- Main Content -->
-  <main class="container">
-    <div class="wallet-container">
-      <div class="wallet-header">
-        <h1>My Wallet</h1>
-        <div class="wallet-balance-card">
-          <div class="balance-info">
-            <h2>Current Balance</h2>
-            <div class="balance-amount">$000.00</div>
-          </div>
-          <div class="wallet-actions">
-            <button class="btn btn-primary" id="fund-wallet-btn">Fund Account</button>
-            <button class="btn btn-outline" id="withdraw-btn">Withdraw</button>
-          </div>
-        </div>
-      </div>
-      
-      <div class="wallet-content">
-        <div class="wallet-tabs">
-          <button class="wallet-tab active" data-tab="transactions">Transactions</button>
-          <button class="wallet-tab" data-tab="pending">Pending (2)</button>
-        </div>
-        
-        <div class="wallet-tab-content active" id="transactions-tab">
-          <div class="transactions-list">
-            <div class="transaction">
-              <div class="transaction-icon deposit">
-                <i class="fas fa-arrow-down"></i>
-              </div>
-              <div class="transaction-details">
-                <div class="transaction-title">Wallet Deposit</div>
-                <div class="transaction-date">May 15, 2023 - 10:30 AM</div>
-              </div>
-              <div class="transaction-amount deposit">+$50.00</div>
-            </div>
-            
-            <div class="transaction">
-              <div class="transaction-icon subscription">
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="transaction-details">
-                <div class="transaction-title">Monthly Subscription - John Doe</div>
-                <div class="transaction-date">May 10, 2023 - 2:15 PM</div>
-              </div>
-              <div class="transaction-amount payment">-$14.99</div>
-            </div>
-            
-            <div class="transaction">
-              <div class="transaction-icon tip">
-                <i class="fas fa-coins"></i>
-              </div>
-              <div class="transaction-details">
-                <div class="transaction-title">Tip Sent - John Doe</div>
-                <div class="transaction-date">May 8, 2023 - 7:45 PM</div>
-              </div>
-              <div class="transaction-amount payment">-$10.00</div>
-            </div>
-            
-            <div class="transaction">
-              <div class="transaction-icon content">
-                <i class="fas fa-lock-open"></i>
-              </div>
-              <div class="transaction-details">
-                <div class="transaction-title">Premium Content Purchase</div>
-                <div class="transaction-date">May 5, 2023 - 11:20 AM</div>
-              </div>
-              <div class="transaction-amount payment">-$5.00</div>
-            </div>
-            
-            <div class="transaction">
-              <div class="transaction-icon deposit">
-                <i class="fas fa-arrow-down"></i>
-              </div>
-              <div class="transaction-details">
-                <div class="transaction-title">Wallet Deposit</div>
-                <div class="transaction-date">May 1, 2023 - 9:00 AM</div>
-              </div>
-              <div class="transaction-amount deposit">+$100.00</div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="wallet-tab-content" id="pending-tab">
-          <div class="pending-transactions">
-            <div class="pending-transaction">
-              <div class="pending-details">
-                <div class="pending-title">Wallet Deposit</div>
-                <div class="pending-amount">$75.00</div>
-                <div class="pending-date">May 18, 2023 - 3:45 PM</div>
-                <div class="pending-status">Awaiting confirmation</div>
-              </div>
-              <div class="pending-actions">
-                <button class="btn btn-sm btn-outline">View Details</button>
-              </div>
-            </div>
-            
-            <div class="pending-transaction">
-              <div class="pending-details">
-                <div class="pending-title">Wallet Deposit</div>
-                <div class="pending-amount">$25.00</div>
-                <div class="pending-date">May 17, 2023 - 1:30 PM</div>
-                <div class="pending-status">Awaiting payment</div>
-              </div>
-              <div class="pending-actions">
-                <button class="btn btn-sm btn-primary">Complete Payment</button>
-                <button class="btn btn-sm btn-outline">Cancel</button>
-              </div>
-            </div>
-          </div>
+<!-- Main Content -->
+<main class="container">
+  <div class="fund-account-container">
+    <div class="fund-account-header">
+      <h1>Fund Your Account</h1>
+      <div class="wallet-balance-card">
+        <div class="balance-info">
+          <h2>Current Balance</h2>
+          <div class="balance-amount">$100.00</div>
         </div>
       </div>
     </div>
-  </main>
-
-  <!-- Mobile Bottom Navigation -->
-  <nav class="mobile-nav">
-    <ul class="user-nav">
-      <li>
-        <a href="index.html">
-          <i class="fas fa-home"></i>
-          <span>Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="messages.html">
-          <i class="fas fa-comment"></i>
-          <span>Messages</span>
-        </a>
-      </li>
-      <li>
-        <a href="profile.html">
-          <i class="fas fa-user"></i>
-          <span>Profile</span>
-        </a>
-      </li>
-      <li>
-        <a href="settings.html">
-          <i class="fas fa-cog"></i>
-          <span>Settings</span>
-        </a>
-      </li>
-    </ul>
-    <ul class="admin-nav">
-      <li>
-        <a href="index.html">
-          <i class="fas fa-home"></i>
-          <span>Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="create-post.html">
-          <i class="fas fa-plus"></i>
-          <span>Add Post</span>
-        </a>
-      </li>
-      <li>
-        <a href="messages.html">
-          <i class="fas fa-comment"></i>
-          <span>Messages</span>
-        </a>
-      </li>
-      <li>
-        <a href="profile.html">
-          <i class="fas fa-user"></i>
-          <span>Profile</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
-
-  <!-- Modals -->
-  <div class="modal" id="fund-wallet-modal">
-    <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <h2>Fund Your Wallet</h2>
+    
+    <div class="fund-account-content">
       <div class="fund-steps">
         <div class="fund-step active" data-step="1">
           <div class="step-number">1</div>
@@ -249,14 +86,28 @@
             <h3>Select Payment Method</h3>
             <div class="payment-methods">
               <div class="payment-method">
-                <input type="radio" name="payment-method" id="credit-card" value="credit-card" checked>
-                <label for="credit-card">
-                  <i class="fas fa-credit-card"></i>
-                  Credit/Debit Card
+                <input type="radio" name="payment-method" id="paypal" value="paypal">
+                <label for="paypal">
+                  <i class="fab fa-paypal"></i>
+                  PayPal
                 </label>
               </div>
               <div class="payment-method">
-                <input type="radio" name="payment-method" id="bank-transfer" value="bank-transfer">
+                <input type="radio" name="payment-method" id="cashapp" value="cashapp">
+                <label for="cashapp">
+                  <i class="fas fa-dollar-sign"></i>
+                  CashApp
+                </label>
+              </div>
+              <div class="payment-method">
+                <input type="radio" name="payment-method" id="apple-pay" value="apple-pay">
+                <label for="apple-pay">
+                  <i class="fab fa-apple-pay"></i>
+                  Apple Pay
+                </label>
+              </div>
+              <div class="payment-method">
+                <input type="radio" name="payment-method" id="bank-transfer" value="bank-transfer" checked>
                 <label for="bank-transfer">
                   <i class="fas fa-university"></i>
                   Bank Transfer
@@ -276,7 +127,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="fund-step" data-step="3">
           <div class="step-number">3</div>
           <div class="step-content">
@@ -320,22 +171,73 @@
             </div>
           </div>
         </div>
+        
+        <div class="fund-step" data-step="4">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Confirmation</h3>
+            <div class="confirmation-message">
+              <div class="confirmation-icon">
+                <i class="fas fa-check-circle"></i>
+              </div>
+              <h4>Payment Proof Submitted Successfully!</h4>
+              <p>Your payment proof has been submitted and is now pending verification. This process typically takes 1-24 hours.</p>
+              <p>Once verified, the funds will be added to your wallet balance.</p>
+              <p>Transaction Reference: <span id="transaction-reference">MF12345</span></p>
+            </div>
+            <div class="confirmation-actions">
+              <a href="wallet.html" class="btn btn-primary">Return to Wallet</a>
+              <a href="index.html" class="btn btn-outline">Go to Home</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+</main>
 
-  <div class="toast" id="toast">
-    <div class="toast-content">
-      <i class="fas fa-check-circle"></i>
-      <div class="toast-message">Success message here</div>
-    </div>
-    <div class="toast-progress"></div>
+<!-- Mobile Bottom Navigation -->
+<nav class="mobile-nav">
+  <ul class="user-nav">
+    <li>
+      <a href="index.html">
+        <i class="fas fa-home"></i>
+        <span>Home</span>
+      </a>
+    </li>
+    <li>
+      <a href="messages.html">
+        <i class="fas fa-comment"></i>
+        <span>Messages</span>
+      </a>
+    </li>
+    <li>
+      <a href="profile.html">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </li>
+    <li>
+      <a href="settings.html">
+        <i class="fas fa-cog"></i>
+        <span>Settings</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="toast" id="toast">
+  <div class="toast-content">
+    <i class="fas fa-check-circle"></i>
+    <div class="toast-message">Success message here</div>
   </div>
+  <div class="toast-progress"></div>
+</div>
 
-  <!-- Scripts -->
-  <script src="js/auth.js"></script>
-  <script src="js/theme.js"></script>
-  <script src="js/wallet.js"></script>
+<!-- Scripts -->
+<script src="/js/auth.js"></script>
+<script src="/js/theme.js"></script>
+<script src="/js/wallet.js"></script>
+<script src="/js/main.js"></script>
 </body>
 </html>
-

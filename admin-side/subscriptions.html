@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MyFans | Subscriptions</title>
+<title>MyFans | Admin Subscriptions</title>
 <link rel="stylesheet" href="/css/styles.css">
-<link rel="stylesheet" href="/css/wallet.css">
+<link rel="stylesheet" href="/css/subscriptions.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="light-mode">
@@ -17,12 +17,13 @@
     </div>
     <nav class="desktop-nav">
       <ul>
-        <li><a href="index.html">Home</a></li>
+        <li><a href="index.html">Dashboard</a></li>
         <li><a href="admin-profile.html">Profile</a></li>
-        <li><a href="chat-interface.html">Messages</a></li>
-        <li><a href="wallet.html">Wallet</a></li>
+        <li><a href="messages.html">Messages</a></li>
+        <li><a href="fund-account.html">Wallet</a></li>
+        <li><a href="admin-fund-requests.html" class="active">Fund Requests</a></li>
         <li><a href="subscriptions.html" class="active">Subscriptions</a></li>
-        <li class="admin-only"><a href="admin-dashboard.html">Dashboard</a></li>
+        <li class="theme-toggle">
         <li class="theme-toggle">
           <button id="theme-toggle-btn">
             <i class="fas fa-moon"></i>
@@ -33,9 +34,8 @@
             <img src="images/image1.png" alt="User Avatar" style="object-fit: fill;">
           </div>
           <div class="dropdown-menu">
-            <a href="profile.html">Profile</a>
-            <a href="settings.html">Settings</a>
-            <a href="#" id="logout-btn">Logout</a>
+           
+            <a href="/index.html" id="logout-btn">Logout</a>
           </div>
         </li>
       </ul>
@@ -344,7 +344,7 @@
 <!-- Scripts -->
 <script src="/js/auth.js"></script>
 <script src="/js/theme.js"></script>
-<script src="/js/subscriptions.js"></script>
+<script src="js/subscriptions.js"></script>
 <script src="/js/main.js"></script>
 </body>
 </html>

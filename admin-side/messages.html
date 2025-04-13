@@ -17,11 +17,13 @@
       </div>
       <nav class="desktop-nav">
         <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="admin-dashboard.html">Dashboard</a></li>
-          <li><a href="admin-chat.html" class="active">Messages</a></li>
-          <li><a href="analytics.html">Analytics</a></li>
-          <li><a href="settings.html">Settings</a></li>
+          <li><a href="index.html">Dashboard</a></li>
+          <li><a href="admin-profile.html">Profile</a></li>
+          <li><a href="messages.html">Messages</a></li>
+          <li><a href="fund-account.html">Wallet</a></li>
+          <li><a href="admin-fund-requests.html" class="active">Fund Requests</a></li>
+          <li><a href="subscriptions.html" class="active">Subscriptions</a></li>
+          <li class="theme-toggle">
           <li class="theme-toggle">
             <button id="theme-toggle-btn">
               <i class="fas fa-moon"></i>
@@ -29,13 +31,11 @@
           </li>
           <li class="user-menu">
             <div class="user-avatar">
-              <img src="/placeholder.svg?height=40&width=40" alt="Admin Avatar">
-              <span class="admin-badge"><i class="fas fa-shield-alt"></i></span>
+              <img src="/images/image1.png" alt="User Avatar" style="object-fit: fill;">
             </div>
             <div class="dropdown-menu">
-              <a href="profile.html">Profile</a>
-              <a href="settings.html">Settings</a>
-              <a href="#" id="logout-btn">Logout</a>
+              
+              <a href="/index.html" id="logout-btn">Logout</a>
             </div>
           </li>
         </ul>
@@ -392,35 +392,38 @@
     </div>
   </main>
 
-  <!-- Mobile Bottom Navigation -->
-  <nav class="mobile-nav">
-    <ul class="admin-nav">
-      <li>
-        <a href="index.html">
-          <i class="fas fa-home"></i>
-          <span>Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="dashboard.html">
-          <i class="fas fa-tachometer-alt"></i>
-          <span>Dashboard</span>
-        </a>
-      </li>
-      <li>
-        <a href="admin-chat.html" class="active">
-          <i class="fas fa-comment"></i>
-          <span>Messages</span>
-        </a>
-      </li>
-      <li>
-        <a href="settings.html">
-          <i class="fas fa-cog"></i>
-          <span>Settings</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+ <!-- Mobile Bottom Navigation -->
+ <nav class="mobile-nav">
+  <ul class="admin-nav">
+    <li>
+      <a href="index.html" class="active">
+        <i class="fas fa-home"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+    <li>
+      <a href="create-post.html">
+        <i class="fas fa-plus"></i>
+        <span>Add Post</span>
+      </a>
+      </a>
+    </li>
+    <li>
+      <a href="messages.html">
+        <i class="fas fa-comment"></i>
+        <span>Messages</span>
+      </a>
+      </a>
+    </li>
+    <li>
+      <a href="admin-profile.html">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
 
   <!-- Modals -->
   <div class="modal" id="attachment-modal">
